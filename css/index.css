@@ -167,6 +167,8 @@ button {
   cursor: pointer;
 }
 
+
+
 button:hover {
   background-color: black;
 }
@@ -180,5 +182,15 @@ button:hover {
 
         nav {
         padding: 20px 100px;
+      }
+
+      div#card {
+        width: 500px;
+      }
+  }
+
+  @media (min-width: 600px) {
+      div#card {
+        width: 60%;
       }
   }
