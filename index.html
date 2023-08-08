@@ -7,105 +7,42 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500&display=swap" rel="stylesheet">
-  <style>
-  * {
-    font-family: 'Poppins', sans-serif;
-    font-size: 13px;
-  }
-
-  h1 {
-    font-size: 25px;
-  }
-
-  #about p {
-    font-size: 13px;
-    margin-top: -15px;
-  }
-
-  #content {
-    padding: 0px 20px;
-    margin: 0px auto;
-  }
-
-  div#card {
-    width: 70%;
-    margin: 0px auto;
-  }
-
-  @media (min-width: 501px) {
-      #content {
-          max-width: 500px;
-          margin: 0 auto; 
-      }
-
-      div#card {
-        width: 50%;
-        margin: 0px auto;
-      }
-  }
-
-  a#contact {
-    background-color: black;
-    color: white;
-    padding: 5px 20px;
-    border-radius: 50px;
-    text-decoration: none;
-    margin: 5px 0px;
-  }
-
-
-  div#social-card {
-    width: 100%;
-  }
-
-  #social-media {
-    display: flex;
-    justify-content: center; 
-    align-items: center;
-    gap: 20px; 
-    margin: 20px;
-  }
-
-  
-
-  img {
-    width: 100%;
-    border-radius: 10px 10px 0px 0px;
-  }
-
-  #card {
-    width: 300px;
-    margin: auto;
-    margin-top: 15px;
-    box-shadow: 0px 5px 8px;
-    border-radius: 10px;
-    text-align: center;
-  }
-
-  #download {
-    display: flex;
-    align-items: center;
-    margin: 15px 10px;
-    font-size: 15px;
-    color: black;
-    text-decoration: none;
-  }
-  .st0{fill:#FFFFFF;}
-
-
-
-
-  </style>
+  <link rel="stylesheet" href="./css/index.css">
 </head>
 <body>
+  <nav >
+    <div>
+      <div>
+          <img src="./images/logo.png" alt="" style="width: 45px; margin-right: 10px;">
+      </div>
+      <div>
+        <ul>
+          <li>
+            <a href="/" class="active">Home</a>
+          </li>
+          <li>
+            <a href="#">My Project</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div>
+      <ul>
+        <li>
+          <a href="contact.html" class="contact">Contact</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
   <div id="content" style="margin: 50px auto;  ">
     <div id="about">
-      <h1>Hi Welcome to my hut</h1>
+      <h1 style="margin-bottom: 10px;">Hi Welcome to my hut</h1>
       <p>
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eveniet velit ab repudiandae deserunt quo eaque corporis laborum labore maxime ipsa. Quis expedita autem dolor voluptatibus, ex labore illo doloremque harum! Repudiandae, harum possimus ut reprehenderit culpa pariatur repellat, beatae amet deserunt cum consequatur est incidunt accusantium dolor necessitatibus at. Ut placeat expedita corrupti quam enim quasi iusto cupiditate. Molestias, nihil?
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis veniam quia voluptas deleniti repudiandae necessitatibus ab similique dolore voluptates! Porro doloribus accusantium voluptatum tenetur vitae quasi iste hic quae veritatis?. possimus!
       </p>
-      <div style="display: flex;">
-        <div style="margin: 20px 0px;">
+      <div style="margin: 30px 0px; display: flex; align-items:center">
+        <div style="margin-right: 5px;">
           <a href="https://muhammadfauzan.netlify.app/" id="contact" >Contact</a>
         </div>
         <a href="https://muhammadfauzan.netlify.app/" id="download">
@@ -114,9 +51,8 @@
           <path d="M17 17H17.01M17.4 14H18C18.9319 14 19.3978 14 19.7654 14.1522C20.2554 14.3552 20.6448 14.7446 20.8478 15.2346C21 15.6022 21 16.0681 21 17C21 17.9319 21 18.3978 20.8478 18.7654C20.6448 19.2554 20.2554 19.6448 19.7654 19.8478C19.3978 20 18.9319 20 18 20H6C5.06812 20 4.60218 20 4.23463 19.8478C3.74458 19.6448 3.35523 19.2554 3.15224 18.7654C3 18.3978 3 17.9319 3 17C3 16.0681 3 15.6022 3.15224 15.2346C3.35523 14.7446 3.74458 14.3552 4.23463 14.1522C4.60218 14 5.06812 14 6 14H6.6M12 15V4M12 15L9 12M12 15L15 12" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
         </a>
-    </div>
-    <div id="social-card">
-      <div id="social-media">
+        </div>
+        <div id="social-media">
         <a href="https://muhammadfauzan.netlify.app/">
           <svg width="40px" height="40px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
             <title>social_linkedin</title>
@@ -154,14 +90,15 @@
           </svg>
         </a>
       </div>
-      <div id="card">
+    </div>
+      <div id="card" style="width: 700px;">
         <img src="./images/me.jpeg" alt="">
-        <div style="padding: 10px; margin-top: 20px">
+        <div style="padding: 20px;">
           <p style=" font-weight: 500; font-size: 15px">Muhammad Fauzan</p>
           <p>Fullstack Developer</p>
+          
         </div>
       </div>
-    </div>
   </div>
   
 </body>
