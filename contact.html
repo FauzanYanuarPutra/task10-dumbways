@@ -7,13 +7,13 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="./css/index.css">
+  <link rel="stylesheet" href="./assets/css/index.css">
 </head>
 <body>
   <nav >
     <div>
       <div>
-          <img src="./images/logo.png" alt="" style="width: 45px; margin-right: 10px;">
+          <img src="./assets/images/logo.png" alt="" style="width: 45px; margin-right: 10px;">
       </div>
       <div>
         <ul>
@@ -35,7 +35,7 @@
     </div>
   </nav>
   <div>
-    <form>
+    <form onsubmit="submitForm()">
       <div>
         <label for="input-name">Name</label>
         <input height="500" type="text" id="input-name" required />
@@ -55,9 +55,9 @@
         <label for="input-subject">Subject</label>
         <select id="input-subject">
           <option value="" hidden>Select</option>
-          <option>Frontend</option>
-          <option>Backend</option>
-          <option>Fullstack</option>
+          <option>Let's Talk</option>
+          <option>Question</option>
+          <option>Feedback</option>
         </select>
       </div>
 
@@ -67,10 +67,14 @@
       </div>
 
       <div>
-        <button>Submit</button>
+        <button type="submit">Submit</button>
       </div>
-  </form>
+    </form>
   </div>
+
+  <script src="./assets/js/script.js"></script>
 </body>
 </html>
+
+
 
