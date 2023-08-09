@@ -61,3 +61,21 @@ function showAdd() {
   idForm.classList.toggle("hidden");
   bg.classList.toggle("hidden");
 }
+
+// function menuSidebar() {
+//   const sidebar = document.querySelector(".sidebar");
+//   sidebar.classList.toggle("hidden");
+// }
+
+function menuSidebar() {
+  const sidebar = document.querySelector(".sidebar");
+  const closeButton = sidebar.querySelector(".close-button");
+
+  sidebar.classList.toggle("hidden");
+
+  if (sidebar.classList.contains("hidden")) {
+    closeButton.style.left = "-60px"; // Hide the close button
+  } else {
+    closeButton.style.left = "0"; // Show the close button
+  }
+}

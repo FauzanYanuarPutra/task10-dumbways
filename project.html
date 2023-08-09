@@ -34,12 +34,19 @@
       #content-card-project {
         grid-template-columns: 1fr 1fr;
       }
+
+      #form-project {
+        width: 50%;
+        width: auto;
+      }
     }
 
     @media (min-width: 1240px) {
       #content-card-project {
         grid-template-columns: 1fr 1fr 1fr;
       }
+
+      
     }
 
     p.judul {
@@ -80,13 +87,27 @@
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      width: auto;
-      max-width: 90%;
+      width: 70%;
       max-height: 80vh; 
       padding: 40px 50px;
       background-color: white;
       border-radius: 20px;
       overflow: auto;
+    }
+
+    .content-project {
+      width: 90%;
+    }
+
+     @media (min-width: 768px) {
+      #form-project {
+        width: 50%;
+        width: auto;
+      }
+
+      .content-project {
+        width: 80%;
+      }
     }
 
     .background-close {
@@ -155,6 +176,8 @@
         font-size: 14px;
         color: rgb(86, 86, 86);
       }
+
+
   </style>
 </head>
 <body>
@@ -182,9 +205,9 @@
       </ul>
     </div>
   </nav>
-  <div style="margin: 50px auto; width:80%">
+  <div class="content-project" style="margin: 50px auto;">
     <h1 style="margin: 20px 0px;">MY PROJECT</h1>
-    <div style="display: flex; justify-content:end ; margin:20px">
+    <div style="display: flex; justify-content:end ; margin:20px 0px">
       <button onclick="showAdd()" style="background-color: orangered; color: white; padding: 10px 30px; border-radius:10px; font-weight: 600">
         ADD PROJECT
       </button>
@@ -335,6 +358,7 @@
         <button>Submit</button>
       </div>
   </div>
+  
 
   <script src="./assets/js/script.js"></script>
 </body>
