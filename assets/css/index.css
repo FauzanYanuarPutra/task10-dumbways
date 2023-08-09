@@ -40,6 +40,7 @@ h1 {
     max-width: 70%;
     margin: 0 auto; 
   }
+  
 }
 
 a#contact {
@@ -223,6 +224,10 @@ button:hover {
     max-width: 70%;
     display: flex;
     margin: 0 auto;
+  }
+
+  #content-card-project {
+    grid-template-columns: 1fr 1fr 1fr;
   }
 
   nav {

@@ -54,3 +54,10 @@ function sendEmail(props) {
   a.href = `mailto:${emailReceiver}?subject=${props.subject}&body=Hello my name ${props.name}, ${props.subject}, ${props.message}`;
   a.click();
 }
+
+function showAdd() {
+  const idForm = document.getElementById("form-project");
+  const bg = document.querySelector(".background-close");
+  idForm.classList.toggle("hidden");
+  bg.classList.toggle("hidden");
+}

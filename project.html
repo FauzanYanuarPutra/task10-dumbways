@@ -12,7 +12,149 @@
       text-align: center;
     }
 
+    #content-card-project .card-project img {
+      height: 250px;
+      object-fit: cover;
+      border-radius: 15px;
+    }
 
+    .card-project {
+      box-shadow: 0px 0px 20px -5px rgba(0,0,0,0.8);
+      padding: 15px;
+      border-radius: 20px;
+    }
+
+    #content-card-project {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+    }
+
+    @media (min-width: 768px) {
+      #content-card-project {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (min-width: 1240px) {
+      #content-card-project {
+        grid-template-columns: 1fr 1fr 1fr;
+      }
+    }
+
+    p.judul {
+      font-size: 17px;
+      font-weight: 500
+    }
+
+    p.about {
+      margin: 20px 0px;
+    }
+
+    .icon-project {
+      display: flex;
+      gap: 15px;
+      margin: 20px 0px;
+    }
+
+    .button-project {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      text-align: center;
+      gap: 10px;
+    }
+
+    .button-project div {
+      background-color: black;
+      border-radius: 10px;
+      padding: 5px;
+      color: white;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    #form-project {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: auto;
+      max-width: 90%;
+      max-height: 80vh; 
+      padding: 40px 50px;
+      background-color: white;
+      border-radius: 20px;
+      overflow: auto;
+    }
+
+    .background-close {
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background-color: rgba(0, 0, 0, 0.556);
+    }
+
+    .date-project {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px
+    }
+
+    input[type="checkbox"] {
+      width: 20px;
+      margin: 8px 0px
+    }
+
+    .tech-check{ 
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .custom-file-input {
+        background-color: rgb(180, 180, 180);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        padding: 10px;
+        white-space: nowrap;
+        border-radius: 5px 0px 0px 5px;
+      }
+
+      .custom-file input, .custom-file {
+        margin: 0;
+        padding: 0;
+        border-radius: 0px 5px 5px 0px;
+      }
+
+      .custom-file-input:hover {
+        background-color: #e0e0e0;
+      }
+
+      
+
+      input[type="file"] {
+        width: 0;
+        height: 0;
+        opacity: 0;
+        overflow: hidden;
+        position: absolute;
+        z-index: -1;
+      }
+
+      .input-form {
+        margin: 10px 0px;
+      }
+
+      .input-form label.judul {
+        font-weight: 400;
+        font-size: 14px;
+        color: rgb(86, 86, 86);
+      }
   </style>
 </head>
 <body>
@@ -40,64 +182,160 @@
       </ul>
     </div>
   </nav>
-  <div style="margin: 50px auto; width:80% ">
-    <h1>Dumbways Web App</h1>
-    <div id="project-detail-header">
-      <div>
-        <img src="./assets/images/me.jpeg" alt="" >
-      </div>
-      <div>
-        <div id="duration">
-          <h6>Duration</h6>
-          <div class="duration">
-            <div class="icon">
-              <div>
-                <img src="./assets/svg/date.svg" alt="SVG Image" style="width: 20px; height: 20px;">
-              </div>
-              <div>12 Jan 2021 - 11 Feb 2021</div>
-            </div>
-            <div class="icon">
-              <div>
-                <img src="./assets/svg/clock.svg" alt="SVG Image" style="width: 20px; height: 20px;">
-              </div>
-              <div>1 month</div>
-            </div>
-          </div>
-        </div>
-        <div id="tech">
-          <h6>Technologies</h6>
-          <div class="tech">
-            <div class="icon">
-              <div>
-                <img src="./assets/svg/react.svg" alt="SVG Image" style="width: 20px; height: 20px;">
-              </div>
-              <div>React Js</div>
-            </div>
-            <div class="icon">
-              <div>
-                <img src="./assets/svg/node-js.svg" alt="SVG Image" style="width: 20px; height: 20px;">
-              </div>
-              <div>Node Js</div>
-            </div>
-            <div class="icon">
-              <div>
-                <img src="./assets/svg/javascript.svg" alt="SVG Image" style="width: 20px; height: 20px;">
-              </div>
-              <div>JavaScript</div>
-            </div>
-            <div class="icon">
-              <div>
-                <img src="./assets/svg/socket-io.svg" alt="SVG Image" style="width: 20px; height: 20px;">
-              </div>
-              <div>Socket IO</div>
-            </div>
-          </div>
-        </div>
-      </div>
+  <div style="margin: 50px auto; width:80%">
+    <h1 style="margin: 20px 0px;">MY PROJECT</h1>
+    <div style="display: flex; justify-content:end ; margin:20px">
+      <button onclick="showAdd()" style="background-color: orangered; color: white; padding: 10px 30px; border-radius:10px; font-weight: 600">
+        ADD PROJECT
+      </button>
     </div>
-    <div>
-      Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nostrum molestias ipsam temporibus cum delectus eveniet, recusandae voluptate fuga eaque error iure odit qui dolorum facere aut quia reiciendis mollitia! Nihil, dolores. Cupiditate nostrum aspernatur sunt cum eius unde id ullam at sit, aperiam minima accusamus non et recusandae, in facere! Pariatur ipsam quam doloremque delectus hic voluptatibus! Debitis, esse! Accusantium maiores deleniti error dolores fuga quo, distinctio fugiat eius illum magni doloremque debitis nemo rerum aliquid consequuntur perferendis itaque dignissimos saepe quas alias quos. Eos temporibus corporis officiis vero totam fuga. Reiciendis maiores dolorum cupiditate nemo accusantium dolorem quidem non ullam, laudantium ex at odio, quo deleniti dolor iste dignissimos blanditiis sunt unde hic aliquam repudiandae autem? Nihil ipsum ullam rerum voluptatem beatae aliquam ea vel. Ad excepturi reprehenderit esse assumenda odio. Pariatur omnis numquam quibusdam officia fuga facere ut tempore sequi culpa. Sit architecto nobis suscipit mollitia tenetur. Illo ex doloremque, voluptas quos, aperiam molestiae natus totam autem iste architecto minima ab aut expedita praesentium iusto quis facere. Debitis quas modi est facilis excepturi, fugiat minus! Voluptatem quos dolorem expedita in architecto quod magni, inventore voluptatum obcaecati odit sit laborum, modi, iusto facilis veritatis harum odio? Quae aspernatur sequi quas, tempore molestias cumque ratione, earum odit corrupti velit tenetur, facere voluptatibus mollitia accusantium odio reiciendis expedita repellat? Provident laudantium, est molestiae consectetur deleniti velit necessitatibus sed tempore nisi. Hic inventore facere est quas praesentium accusamus ullam sed dolor ut sint ratione magni, quod distinctio tenetur aperiam veritatis repellendus fugit aut? Harum dolor facilis, nobis possimus nisi repellendus fugiat alias quo, aperiam, nemo unde mollitia? Eius quo totam dignissimos perspiciatis excepturi sint exercitationem doloribus aliquid, rem pariatur quam ex quas deserunt at reprehenderit aspernatur magni. Rem exercitationem porro, nam molestias inventore assumenda odio rerum voluptatem, totam quod, aperiam ipsa culpa reiciendis quia eligendi earum. Ratione quae sint nostrum perspiciatis quisquam. Perspiciatis ipsa totam illum praesentium minima magni eius impedit? Deleniti obcaecati accusantium nihil saepe dolorem vitae accusamus molestias repellat repudiandae quod velit, doloribus, illum dolorum laudantium aspernatur. Eveniet in magnam eius ab ipsam culpa fugit repudiandae fugiat blanditiis ea, error impedit pariatur amet. Enim, maiores similique asperiores, possimus reiciendis, porro facere animi alias sunt quaerat illo voluptatibus deserunt earum tempore molestias. Harum libero doloribus sit consequuntur eum, impedit ad distinctio, mollitia cupiditate consequatur ipsum ratione nam rem debitis, assumenda recusandae aliquid laboriosam earum eius labore fugiat magni sed perspiciatis. Sunt harum recusandae laboriosam delectus unde eius ipsa sequi. Quos quasi eligendi eius eveniet praesentium ipsa obcaecati culpa eum ducimus autem. Sint dolores animi molestiae, voluptates adipisci impedit sapiente veritatis quod, facere aliquam commodi vero fugit repellendus labore alias praesentium dolore cupiditate quis et ipsum doloribus tenetur ratione iusto omnis! Impedit obcaecati illum incidunt. Expedita totam, exercitationem magni nobis eligendi dignissimos ipsa laboriosam est fugiat quo rerum repellendus ad aliquam excepturi, ab eos dolore similique provident praesentium officia ullam voluptas consequatur. Amet maiores facere molestias quas sed reprehenderit accusantium, quaerat, tenetur omnis quis mollitia quibusdam quasi eum. Tenetur vero dolores magni totam explicabo adipisci dicta voluptatibus eveniet harum, commodi amet voluptate autem nostrum ex minus, earum impedit porro sapiente facere rem debitis accusantium. Alias saepe harum modi quis mollitia odit fuga exercitationem nam! Aliquid accusantium ut unde eveniet quae quidem nulla vel asperiores, maiores aliquam ea esse repellendus blanditiis perspiciatis nam nostrum reprehenderit dolore nihil aspernatur excepturi quis similique ullam neque? Voluptatibus eaque eum perferendis mollitia. Nemo nam, iste eveniet possimus, voluptatibus eos quam consequatur, aut modi est dolores dicta ea odio mollitia minus? Voluptate sint praesentium dolorem sapiente inventore odit quod pariatur quae facilis magni, nam nemo necessitatibus dignissimos cupiditate, aspernatur excepturi voluptatem vel, deserunt aliquid voluptas. Dolor voluptate eum nam fugiat voluptas laboriosam recusandae quis repudiandae, molestiae eius suscipit voluptatibus quas alias consequatur sequi vero culpa debitis maiores voluptatum ab at? Facere culpa corrupti, eligendi eveniet magnam modi doloremque assumenda, accusantium excepturi minima possimus unde quaerat, delectus recusandae earum est quis quasi minus libero repellendus non voluptatum inventore aperiam. Eos delectus non est qui fuga nihil illo. Non natus inventore ullam nobis distinctio? Fuga temporibus incidunt repudiandae illum necessitatibus quas ipsum, quaerat accusantium atque ducimus, aliquid ipsam alias velit. Fuga distinctio deserunt, ullam modi tempora officiis error culpa animi soluta quisquam voluptas necessitatibus quis! Cupiditate quo enim, praesentium impedit architecto consequatur animi debitis ex error laboriosam, ea maiores quibusdam corporis ipsum libero facilis ipsam totam nulla possimus repellat facere. Eveniet aspernatur in nobis illo ullam error placeat vel deleniti, dicta dignissimos accusamus corporis consequatur reprehenderit alias sint eum, quasi necessitatibus doloribus eligendi soluta facilis? Quasi molestiae illum optio id voluptas sunt necessitatibus minima enim corrupti voluptates maiores sit odit, ducimus nisi amet, atque tenetur autem possimus dolores. Autem explicabo expedita ea, vel unde repellendus, tempore, impedit accusantium veniam magnam culpa libero quidem. Odio repellat saepe earum quibusdam eligendi libero iure dolores suscipit totam explicabo recusandae blanditiis unde repellendus odit amet reiciendis quo facilis vel, ducimus commodi, corporis in. Asperiores voluptates quasi quibusdam consequatur exercitationem, voluptatum corporis. Qui placeat tempore officia autem itaque omnis distinctio in sed. Laudantium, autem! Non itaque, repudiandae dicta, quae sequi, modi eaque animi saepe dolores veritatis optio nulla necessitatibus? Nostrum placeat, sequi debitis est, dolorem voluptas fugiat provident magni minima illum dolor quasi ducimus quaerat omnis similique voluptates temporibus vero? Earum, quod possimus repellendus consequuntur illo consectetur officia amet voluptatem eaque temporibus pariatur explicabo soluta! Vitae quaerat voluptatem vero in voluptatum blanditiis modi aliquid quam officia ratione. Explicabo, nulla quaerat id impedit ullam aliquid? Aliquam aperiam deserunt totam consequuntur similique beatae minus sit dolores error in, quae soluta ratione, non eos sint delectus, aspernatur quia modi aliquid? Pariatur consequatur culpa laboriosam corporis facere commodi voluptates, odio eveniet a soluta quo ipsam molestias neque nemo provident error veniam aliquam nobis dolore? Atque repellendus quam alias architecto in odit, aperiam ad. Fugit ullam ex maxime molestiae dolorem vero. Molestiae minima deserunt dolores soluta quia possimus magni consectetur earum iure quidem aut, ab illo qui, omnis asperiores molestias quae sint doloremque, impedit eligendi! Rerum cum accusamus non? Ipsam?
+    <div id="content-card-project">
+      <a href="projectDetail.html" class="card-project">
+        <div>
+          <img src="https://source.unsplash.com/random/500x500?programmer" alt="" style="width: 100%;">
+        </div>
+        <div>
+          <p class="judul">Dumbways Mobile App - 2021</p>
+          <p>durasi : 3 bulan</p>
+          <p class="about">App that used for dumbways student, it was deployed and can downloaded on playstore Happy download</p>
+          <div class="icon-project">
+            <div>
+              <img src="./assets/svg/playstore.svg" alt="SVG Image" style="width: 20px; height: 20px;">
+            </div>
+            <div>
+              <img src="./assets/svg/android.svg" alt="SVG Image" style="width: 20px; height: 20px;">
+            </div>
+            <div>
+              <img src="./assets/svg/java.svg" alt="SVG Image" style="width: 20px; height: 20px;">
+            </div>
+          </div>
+          <div class="button-project">
+            <div>Edit</div>
+            <div>Delete</div>
+          </div>
+        </div>
+      </a>
+      <a href="projectDetail.html" class="card-project">
+        <div>
+          <img src="https://source.unsplash.com/random/700x700?programmer" alt="" style="width: 100%;">
+        </div>
+        <div>
+          <p class="judul">Dumbways Mobile App - 2021</p>
+          <p>durasi : 3 bulan</p>
+          <p class="about">App that used for dumbways student, it was deployed and can downloaded on playstore Happy download</p>
+          <div class="icon-project">
+            <div>
+              <img src="./assets/svg/playstore.svg" alt="SVG Image" style="width: 20px; height: 20px;">
+            </div>
+            <div>
+              <img src="./assets/svg/android.svg" alt="SVG Image" style="width: 20px; height: 20px;">
+            </div>
+            <div>
+              <img src="./assets/svg/java.svg" alt="SVG Image" style="width: 20px; height: 20px;">
+            </div>
+          </div>
+          <div class="button-project">
+            <div>Edit</div>
+            <div>Delete</div>
+          </div>
+        </div>
+      </a>
+      <a href="projectDetail.html" class="card-project">
+        <div>
+          <img src="https://source.unsplash.com/random/400x400?programmer" alt="" style="width: 100%;">
+        </div>
+        <div>
+          <p class="judul">Dumbways Mobile App - 2021</p>
+          <p>durasi : 3 bulan</p>
+          <p class="about">App that used for dumbways student, it was deployed and can downloaded on playstore Happy download</p>
+          <div class="icon-project">
+            <div>
+              <img src="./assets/svg/playstore.svg" alt="SVG Image" style="width: 20px; height: 20px;">
+            </div>
+            <div>
+              <img src="./assets/svg/android.svg" alt="SVG Image" style="width: 20px; height: 20px;">
+            </div>
+            <div>
+              <img src="./assets/svg/java.svg" alt="SVG Image" style="width: 20px; height: 20px;">
+            </div>
+          </div>
+          <div class="button-project">
+            <div>Edit</div>
+            <div>Delete</div>
+          </div>
+        </div>
+      </a>
     </div>
   </div>
+
+  <div onclick="showAdd()" class="background-close hidden"></div>
+
+  <div id="form-project" class="hidden" style="position: block; overflow: auto;">
+      <div style="position: absolute; top:0; right: 0; margin:20px;  justify-content: end;">
+        <div onclick="showAdd()" style=" padding:10px; border-radius:100%; cursor: pointer">
+          <img src="./assets/svg/close.svg" alt="" style="width: 30px;">
+        </div>
+      </div>
+      <h1>ADD MY PROJECT</h1>
+      <div class="input-form">
+        <label for="project-name" class="judul">Project Name</label>
+        <input type="text" id="project-name">
+      </div>
+      <div class="date-project input-form">
+        <div>
+          <label for="project-name"  class="judul">Start Date</label>
+          <input type="date" id="project-name">
+        </div>
+        <div>
+          <label for="project-name" class="judul">End Date</label>
+          <input type="date" id="project-name">
+        </div>
+      </div>
+      <div class="input-form">
+        <label for="project-name" class="judul">Description</label>
+        <textarea type="text" id="project-name"></textarea>
+      </div>
+      <div class="input-form">
+        <label for="project-name" class="judul">Techbologies</label>
+        <div class="tech-check">
+          <div class="checkbox">
+            <input type="checkbox">
+            <label for="">Node Js</label>
+          </div>
+          <div>
+            <input type="checkbox">
+            <label for="">React Js</label>
+          </div>
+          <div>
+            <input type="checkbox">
+            <label for="">Next Js</label>
+          </div>
+          <div>
+            <input type="checkbox">
+            <label for="">TypeScript</label>
+          </div>
+        </div>
+      </div>
+      <div class="input-form" >
+        <label for="" class="judul" >Pilih Gambar </label>
+        <div style="display:flex; margin-top:5px; position:relative" class="custom-file" >
+          <label class="custom-file-input">
+            Choose File
+            <input type="file">
+          </label>
+          <input type="text" name="" id="">
+          <div style="position: absolute; right:0;bottom:0; top:0;">
+            <div style="height: 100%; padding: 0px 15px; display:flex; align-items:center; justify-content:center">
+              <img src="./assets/svg/link.svg" alt="" style="width: 20px; cursor: pointer">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div style="display: flex; justify-content:end">
+        <button>Submit</button>
+      </div>
+  </div>
+
+  <script src="./assets/js/script.js"></script>
 </body>
 </html>
