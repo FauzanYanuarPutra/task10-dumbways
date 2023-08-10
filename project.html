@@ -8,6 +8,15 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="./assets/css/index.css">
   <link rel="stylesheet" href="./assets/css/project.css">
+  <style>
+    .about {
+      display: -webkit-box;
+      overflow: hidden;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      text-overflow: ellipsis;
+    }
+  </style>
 </head>
 <body>
   <nav>
@@ -49,7 +58,7 @@
         <div>
           <p class="judul">Dumbways Mobile App - 2021</p>
           <p>durasi : 3 bulan</p>
-          <p class="about">App that used for dumbways student, it was deployed and can downloaded on playstore Happy download</p>
+          <p class="about">App that used for dumbways student, it was deployed and can downloaded on playstore Happy download Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis ipsam architecto aliquid atque possimus, recusandae fugit excepturi odit! Dignissimos amet quae, beatae facilis eius repudiandae officiis distinctio vel adipisci nam neque est laudantium ducimus excepturi quod fuga aliquid eaque, atque et exercitationem ea magnam ab soluta tempore. Dicta voluptatem fugiat aut vitae autem fugit optio natus molestiae, alias, itaque beatae debitis, deleniti odit hic animi nesciunt similique tempora suscipit. Iure, ipsum temporibus deserunt minus, a doloribus quos veniam quis exercitationem nulla sequi ducimus quisquam quod blanditiis illo magnam? Consequatur totam asperiores saepe? Earum laborum saepe placeat consequuntur a optio porro animi! Reprehenderit omnis est atque molestias voluptatibus veritatis, repellendus modi quisquam. Deleniti quis quos dignissimos veritatis voluptates, autem in deserunt laboriosam rem numquam dolorum necessitatibus officiis distinctio neque placeat alias impedit nobis recusandae nostrum id tempora ipsam. Maxime nobis optio odio possimus deserunt, molestiae ut laborum, et dolor quas ullam reprehenderit sapiente blanditiis consectetur ea tempore officiis, vel voluptate eligendi velit placeat. Quasi tempora aliquid necessitatibus similique consequatur culpa sunt minima corrupti optio quo. Nemo ullam distinctio, accusantium odit vero fugit animi voluptate obcaecati adipisci sunt excepturi ipsum doloribus natus tempora explicabo. Exercitationem minus molestiae iusto beatae facere cum nihil.</p>
           <div class="icon-project">
             <div>
               <img src="./assets/svg/playstore.svg" alt="SVG Image" style="width: 20px; height: 20px;">
@@ -238,7 +247,8 @@
 
       const imageInput = document.querySelector("#image");
       const selectedImage = imageInput.files[0];
-      const imageUrl = selectedImage ? URL.createObjectURL(selectedImage) : null; 
+      const imageUrl = selectedImage ? URL.createObjectURL(selectedImage) : null;
+      
 
       const newProject = {
         name: projectName,
