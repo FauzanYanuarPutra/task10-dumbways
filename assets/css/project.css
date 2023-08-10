@@ -43,7 +43,7 @@ p.about {
 
 .icon-project {
   display: flex;
-  gap: 15px;
+  gap: 10px;
   margin: 20px 0px;
 }
 
@@ -164,3 +164,5 @@ input[type="file"] {
 form div {
   margin-top: 0px;
 }
+
+

@@ -15,6 +15,7 @@
       -webkit-line-clamp: 2;
       -webkit-box-orient: vertical;
       text-overflow: ellipsis;
+      height: 40px;
     }
   </style>
 </head>
@@ -55,7 +56,7 @@
         <div>
           <img src="https://source.unsplash.com/random/500x500?programmer" alt="" style="width: 100%;">
         </div>
-        <div>
+        <div class="isi-content">
           <p class="judul">Dumbways Mobile App - 2021</p>
           <p>durasi : 3 bulan</p>
           <p class="about">App that used for dumbways student, it was deployed and can downloaded on playstore Happy download Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis ipsam architecto aliquid atque possimus, recusandae fugit excepturi odit! Dignissimos amet quae, beatae facilis eius repudiandae officiis distinctio vel adipisci nam neque est laudantium ducimus excepturi quod fuga aliquid eaque, atque et exercitationem ea magnam ab soluta tempore. Dicta voluptatem fugiat aut vitae autem fugit optio natus molestiae, alias, itaque beatae debitis, deleniti odit hic animi nesciunt similique tempora suscipit. Iure, ipsum temporibus deserunt minus, a doloribus quos veniam quis exercitationem nulla sequi ducimus quisquam quod blanditiis illo magnam? Consequatur totam asperiores saepe? Earum laborum saepe placeat consequuntur a optio porro animi! Reprehenderit omnis est atque molestias voluptatibus veritatis, repellendus modi quisquam. Deleniti quis quos dignissimos veritatis voluptates, autem in deserunt laboriosam rem numquam dolorum necessitatibus officiis distinctio neque placeat alias impedit nobis recusandae nostrum id tempora ipsam. Maxime nobis optio odio possimus deserunt, molestiae ut laborum, et dolor quas ullam reprehenderit sapiente blanditiis consectetur ea tempore officiis, vel voluptate eligendi velit placeat. Quasi tempora aliquid necessitatibus similique consequatur culpa sunt minima corrupti optio quo. Nemo ullam distinctio, accusantium odit vero fugit animi voluptate obcaecati adipisci sunt excepturi ipsum doloribus natus tempora explicabo. Exercitationem minus molestiae iusto beatae facere cum nihil.</p>
@@ -80,7 +81,7 @@
         <div>
           <img src="https://source.unsplash.com/random/700x700?programmer" alt="" style="width: 100%;">
         </div>
-        <div>
+        <div class="isi-content">
           <p class="judul">Dumbways Mobile App - 2021</p>
           <p>durasi : 3 bulan</p>
           <p class="about">App that used for dumbways student, it was deployed and can downloaded on playstore Happy download</p>
@@ -105,7 +106,7 @@
         <div>
           <img src="https://source.unsplash.com/random/400x400?programmer" alt="" style="width: 100%;">
         </div>
-        <div>
+        <div class="isi-content">
           <p class="judul">Dumbways Mobile App - 2021</p>
           <p>durasi : 3 bulan</p>
           <p class="about">App that used for dumbways student, it was deployed and can downloaded on playstore Happy download</p>
@@ -139,7 +140,7 @@
       <h1>ADD MY PROJECT</h1>
       <div class="input-form">
         <label for="project-name" class="judul">Project Name</label>
-        <input type="text" id="project-name">
+        <input type="text" id="project-name" required>
       </div>
       <div class="date-project input-form">
         <div>
@@ -153,33 +154,33 @@
       </div>
       <div class="input-form">
         <label for="description" class="judul">Description</label>
-        <textarea type="text" id="description"></textarea>
+        <textarea type="text" id="description" required></textarea>
       </div>
       <div class="input-form">
         <label for="checkbox" class="judul">Techbologies</label>
         <div class="tech-check">
           <div class="checkbox">
-            <input type="checkbox" id="node-js" >
+            <input type="checkbox"  name="checkbox-group" id="node-js" data-tech="node-js">
             <img src="./assets/svg/node-js.svg" alt="" width="20px" style="margin-right: 5px;">
-            <label for="node-js" >Node Js</label>
+            <label for="node-js">Node Js</label>
           </div>
           <div class="checkbox">
-            <input type="checkbox" id="react-js">
+            <input type="checkbox"  name="checkbox-group" id="react-js" data-tech="react">
             <img src="./assets/svg/react.svg" alt="" width="20px" style="margin-right: 5px;">
-            <label for="react-js" >React Js</label>
+            <label for="react-js">React Js</label>
           </div>
           <div class="checkbox">
-            <input type="checkbox" id="next-js">
+            <input type="checkbox"  name="checkbox-group" id="next-js" data-tech="next-js">
             <img src="./assets/svg/next-js.svg" alt="" width="20px" style="margin-right: 5px;">
-
-            <label for="next-js" >Next Js</label>
+            <label for="next-js">Next Js</label>
           </div>
           <div class="checkbox">
-            <input type="checkbox" id="typescript">
+            <input type="checkbox"  name="checkbox-group" id="typescript" data-tech="typescript">
             <img src="./assets/svg/typescript.svg" alt="" width="20px" style="margin-right: 5px;">
-            <label for="typescript" >TypeScript</label>
+            <label for="typescript">TypeScript</label>
           </div>
         </div>
+        <span class=" checkbox-error-validate hidden" style="color: red; margin: 5px 0px">Pilih Setidaknya salah satu</span>
       </div>
       <div class="input-form" >
         <label for="" class="judul" >Pilih Gambar </label>
@@ -203,14 +204,9 @@
     const DataProject = []
 
     function iconCard(technologies) {
-      const icons = {
-        "Node Js": "./assets/svg/node-js.svg",
-        "React Js": "./assets/svg/react.svg",
-        "TypeScript": "./assets/svg/typescript.svg",
-        "Next Js": "./assets/svg/next-js.svg"
-      };
+      console.log(technologies);
 
-      return technologies.map(tech => `<img src="${icons[tech]}" alt="${tech}" style="width: 20px; height: 20px;">`).join('');
+      return technologies.map(tech => `<img src="./assets/svg/${tech}.svg" alt="${tech}" style="width: 20px; height: 20px;">`).join('');
     }
     
 
@@ -253,7 +249,8 @@
       const description = document.getElementById("description").value;
 
       const technologies = Array.from(document.querySelectorAll(".tech-check input[type='checkbox']:checked"))
-                                .map(checkbox => checkbox.nextElementSibling.textContent);
+                                .map(checkbox => checkbox.getAttribute("data-tech"));
+      console.log(technologies)
 
       const imageInput = document.querySelector("#image");
       const selectedImage = imageInput.files[0];
@@ -261,6 +258,13 @@
       
 
       const durasi = calculateMonthDifference(startDate, endDate)
+      const error = document.querySelector(".checkbox-error-validate")
+      if (technologies.length === 0) {
+        error.classList.remove('hidden')
+        return;
+      } else {
+        error.classList.add('hidden')
+      }
 
       const newProject = {
         name: projectName,
@@ -271,6 +275,8 @@
         image: imageUrl,
         durasi: durasi
       };
+
+      
 
       console.log("New Project:", newProject);
       DataProject.push(newProject)
