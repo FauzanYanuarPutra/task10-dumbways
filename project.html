@@ -159,20 +159,20 @@
         <label for="checkbox" class="judul">Techbologies</label>
         <div class="tech-check">
           <div class="checkbox">
-            <input type="checkbox" id="node-js">
-            <label for="node-js">Node Js</label>
+            <input type="checkbox" id="node-js" >
+            <label for="node-js" >Node Js</label>
           </div>
           <div class="checkbox">
             <input type="checkbox" id="react-js">
-            <label for="react-js">React Js</label>
+            <label for="react-js" >React Js</label>
           </div>
           <div class="checkbox">
             <input type="checkbox" id="next-js">
-            <label for="next-js">Next Js</label>
+            <label for="next-js" >Next Js</label>
           </div>
           <div class="checkbox">
             <input type="checkbox" id="typescript">
-            <label for="typescript">TypeScript</label>
+            <label for="typescript" >Typescript</label>
           </div>
         </div>
       </div>
@@ -197,6 +197,18 @@
   <script>
     const DataProject = []
 
+    function iconCard(technologies) {
+      const icons = {
+        "Node Js": "./assets/svg/node-js.svg",
+        "React Js": "./assets/svg/react.svg",
+        "Typescript": "./assets/svg/typescript.svg",
+        "Next Js": "./assets/svg/next-js.svg"
+      };
+
+      return technologies.map(tech => `<img src="${icons[tech]}" alt="${tech}" style="width: 20px; height: 20px;">`).join('');
+    }
+    
+
     function renderProjects() {
       const contentContainer = document.getElementById("content-card-project");
       contentContainer.innerHTML = ""; 
@@ -209,18 +221,10 @@
             </div>
             <div>
               <p class="judul">${project.name}</p>
-              <p>durasi : 3 bulan</p>
+              <p>durasi : ${project.durasi} bulan</p>
               <p class="about">${project.description}</p>
               <div class="icon-project">
-                <div>
-                  <img src="./assets/svg/playstore.svg" alt="SVG Image" style="width: 20px; height: 20px;">
-                </div>
-                <div>
-                  <img src="./assets/svg/android.svg" alt="SVG Image" style="width: 20px; height: 20px;">
-                </div>
-                <div>
-                  <img src="./assets/svg/java.svg" alt="SVG Image" style="width: 20px; height: 20px;">
-                </div>
+                ${iconCard(project.technologies)}
               </div>
               <div class="button-project">
                 <div>Edit</div>
@@ -229,6 +233,7 @@
             </div>
           </a>
         `;
+
 
         contentContainer.innerHTML += projectHTML;
       });
@@ -250,6 +255,8 @@
       const imageUrl = selectedImage ? URL.createObjectURL(selectedImage) : null;
       
 
+      const durasi = calculateMonthDifference(startDate, endDate)
+
       const newProject = {
         name: projectName,
         startDate: startDate,
@@ -257,12 +264,23 @@
         description: description,
         technologies: technologies,
         image: imageUrl,
+        durasi: durasi
       };
 
       console.log("New Project:", newProject);
       DataProject.push(newProject)
       console.log(DataProject)
       renderProjects();
+    }
+
+    function calculateMonthDifference(startDate, endDate) {
+      var start = new Date(startDate);
+      var end = new Date(endDate);
+
+      var yearDiff = end.getFullYear() - start.getFullYear();
+      var monthDiff = end.getMonth() - start.getMonth();
+
+      return yearDiff * 12 + monthDiff;
     }
 
   </script>
