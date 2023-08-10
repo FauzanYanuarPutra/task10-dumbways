@@ -186,6 +186,44 @@
   </form>
 
   <script>
+    const DataProject = []
+
+    function renderProjects() {
+      const contentContainer = document.getElementById("content-card-project");
+      contentContainer.innerHTML = ""; 
+
+      DataProject.forEach(project => {
+        const projectHTML = `
+          <a href="projectDetail.html" class="card-project">
+            <div>
+              <img src="${project.image}" alt="" style="width: 100%;">
+            </div>
+            <div>
+              <p class="judul">${project.name}</p>
+              <p>durasi : 3 bulan</p>
+              <p class="about">${project.description}</p>
+              <div class="icon-project">
+                <div>
+                  <img src="./assets/svg/playstore.svg" alt="SVG Image" style="width: 20px; height: 20px;">
+                </div>
+                <div>
+                  <img src="./assets/svg/android.svg" alt="SVG Image" style="width: 20px; height: 20px;">
+                </div>
+                <div>
+                  <img src="./assets/svg/java.svg" alt="SVG Image" style="width: 20px; height: 20px;">
+                </div>
+              </div>
+              <div class="button-project">
+                <div>Edit</div>
+                <div>Delete</div>
+              </div>
+            </div>
+          </a>
+        `;
+
+        contentContainer.innerHTML += projectHTML;
+      });
+    }
     function addBlog(event){
       event.preventDefault();
       console.log("Hallo")
@@ -212,7 +250,11 @@
       };
 
       console.log("New Project:", newProject);
+      DataProject.push(newProject)
+      console.log(DataProject)
+      renderProjects();
     }
+
   </script>
   <script src="./assets/js/script.js"></script>
 </body>
