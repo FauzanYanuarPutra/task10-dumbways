@@ -75,7 +75,7 @@ function iconCard(technologies) {
   return technologies
     .map(
       (tech) =>
-        `<img src="./assets/svg/${tech}.svg" alt="${tech}" style="width: 20px; height: 20px;">`
+        `<img src="./..//assets/svg/${tech}.svg" alt="${tech}" style="width: 20px; height: 20px;">`
     )
     .join("");
 }
@@ -127,12 +127,21 @@ function addBlog(event) {
   const imageUrl = selectedImage ? URL.createObjectURL(selectedImage) : null;
 
   const durasi = calculateMonthDifference(startDate, endDate);
-  const error = document.querySelector(".checkbox-error-validate");
+  const errorCheckbox = document.querySelector(".checkbox-error-validate");
+  const errorDeskripsi = document.querySelector(".deskripsi-error-validate");
+
   if (technologies.length === 0) {
-    error.classList.remove("hidden");
+    errorCheckbox.classList.remove("hidden");
     return;
   } else {
-    error.classList.add("hidden");
+    errorCheckbox.classList.add("hidden");
+  }
+
+  if (description.length <= 150) {
+    errorDeskripsi.classList.remove("hidden");
+    return;
+  } else {
+    errorDeskripsi.classList.add("hidden");
   }
 
   const newProject = {

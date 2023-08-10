@@ -16,21 +16,10 @@ h1 {
 
 #content-card-project {
   display: grid;
-  grid-template-columns: 1fr;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 10px;
 }
 
-@media (min-width: 768px) {
-  #content-card-project {
-    grid-template-columns: 1fr 1fr;
-  }
-}
-
-@media (min-width: 1240px) {
-  #content-card-project {
-    grid-template-columns: 1fr 1fr 1fr;
-  }
-}
 
 p.judul {
   font-size: 17px;
@@ -168,15 +157,14 @@ form div {
 .about {
   display: -webkit-box;
   overflow: hidden;
-  -webkit-line-clamp: 1;
+  -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   text-overflow: ellipsis;
+  white-space: normal; 
 }
 
 .judul {
-  display: -webkit-box;
   overflow: hidden;
-  -webkit-line-clamp: 1;
-  -webkit-box-orient: vertical;
   text-overflow: ellipsis;
+  white-space: nowrap;
 }
