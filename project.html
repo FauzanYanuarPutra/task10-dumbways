@@ -7,179 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="./assets/css/index.css">
-  <style>
-    h1 {
-      text-align: center;
-    }
-
-    #content-card-project .card-project img {
-      height: 250px;
-      object-fit: cover;
-      border-radius: 15px;
-    }
-
-    .card-project {
-      box-shadow: 0px 0px 12px -5px rgba(0,0,0,0.8);
-      padding: 15px;
-      border-radius: 20px;
-    }
-
-    #content-card-project {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 10px;
-    }
-
-    @media (min-width: 768px) {
-      #content-card-project {
-        grid-template-columns: 1fr 1fr;
-      }
-    }
-
-    @media (min-width: 1240px) {
-      #content-card-project {
-        grid-template-columns: 1fr 1fr 1fr;
-      }
-
-      
-    }
-
-    p.judul {
-      font-size: 17px;
-      font-weight: 500
-    }
-
-    p.about {
-      margin: 20px 0px;
-    }
-
-    .icon-project {
-      display: flex;
-      gap: 15px;
-      margin: 20px 0px;
-    }
-
-    .button-project {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      text-align: center;
-      gap: 10px;
-    }
-
-    .button-project div {
-      background-color: black;
-      border-radius: 10px;
-      padding: 5px;
-      color: white;
-    }
-
-    .hidden {
-      display: none;
-    }
-
-    #form-project {
-      position: fixed;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: 85%;
-      max-height: 80vh; 
-      padding: 20px 25px;
-      background-color: white;
-      border-radius: 20px;
-      overflow: auto;
-    }
-
-    .content-project {
-      width: 90%;
-    }
-
-     @media (min-width: 768px) {
-      #form-project {
-        width: 50%;
-        width: auto;
-        padding: 40px 50px;
-      }
-
-      .content-project {
-        width: 80%;
-      }
-    }
-
-    .background-close {
-      position: fixed;
-      top: 0;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      background-color: rgba(0, 0, 0, 0.556);
-    }
-
-    .date-project {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 10px
-    }
-
-    input[type="checkbox"] {
-      width: 20px;
-      margin: 8px 0px
-    }
-
-    .tech-check{ 
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-    }
-
-    .tech-check .checkbox {
-      display: flex;
-      align-items: center;
-    }
-
-    .custom-file-input {
-        background-color: rgb(180, 180, 180);
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        cursor: pointer;
-        padding: 10px;
-        white-space: nowrap;
-        border-radius: 5px 0px 0px 5px;
-      }
-
-      .custom-file input, .custom-file {
-        margin: 0;
-        padding: 0;
-        border-radius: 0px 5px 5px 0px;
-      }
-
-      .custom-file-input:hover {
-        background-color: #e0e0e0;
-      }
-
-      
-
-      input[type="file"] {
-        width: 0;
-        height: 0;
-        opacity: 0;
-        overflow: hidden;
-        position: absolute;
-        z-index: -1;
-      }
-
-      .input-form {
-        margin: 10px 0px;
-      }
-
-      .input-form label.judul {
-        font-weight: 400;
-        font-size: 14px;
-        color: rgb(86, 86, 86);
-      }
-
-
-  </style>
+  <link rel="stylesheet" href="./assets/css/project.css">
 </head>
 <body>
   <nav>
@@ -293,8 +121,7 @@
   </div>
 
   <div onclick="showAdd()" class="background-close hidden"></div>
-
-  <div id="form-project" class="hidden" style="position: block; overflow: auto;">
+  <form onsubmit="addBlog(event)" id="form-project" class="hidden" style="position: block; overflow: auto;">
       <div style="position: absolute; top:0; right: 0; margin:10px;  justify-content: end;">
         <div onclick="showAdd()" style=" padding:5px; border-radius:100%; cursor: pointer">
           <img src="./assets/svg/close.svg" alt="" style="width: 30px;">
@@ -307,60 +134,87 @@
       </div>
       <div class="date-project input-form">
         <div>
-          <label for="project-name"  class="judul">Start Date</label>
-          <input type="date" id="project-name">
+          <label for="start-date"  class="judul">Start Date</label>
+          <input type="date" id="start-date">
         </div>
         <div>
-          <label for="project-name" class="judul">End Date</label>
-          <input type="date" id="project-name">
+          <label for="end-date" class="judul">End Date</label>
+          <input type="date" id="end-date">
         </div>
       </div>
       <div class="input-form">
-        <label for="project-name" class="judul">Description</label>
-        <textarea type="text" id="project-name"></textarea>
+        <label for="description" class="judul">Description</label>
+        <textarea type="text" id="description"></textarea>
       </div>
       <div class="input-form">
-        <label for="project-name" class="judul">Techbologies</label>
+        <label for="checkbox" class="judul">Techbologies</label>
         <div class="tech-check">
           <div class="checkbox">
-            <input type="checkbox">
-            <label for="">Node Js</label>
+            <input type="checkbox" id="node-js">
+            <label for="node-js">Node Js</label>
           </div>
           <div class="checkbox">
-            <input type="checkbox">
-            <label for="">React Js</label>
+            <input type="checkbox" id="react-js">
+            <label for="react-js">React Js</label>
           </div>
           <div class="checkbox">
-            <input type="checkbox">
-            <label for="">Next Js</label>
+            <input type="checkbox" id="next-js">
+            <label for="next-js">Next Js</label>
           </div>
           <div class="checkbox">
-            <input type="checkbox">
-            <label for="">TypeScript</label>
+            <input type="checkbox" id="typescript">
+            <label for="typescript">TypeScript</label>
           </div>
         </div>
       </div>
       <div class="input-form" >
         <label for="" class="judul" >Pilih Gambar </label>
-        <div style="display:flex; margin-top:5px; position:relative" class="custom-file" >
+        <div style="display:flex; margin-top:5px; position:relative;" class="custom-file" >
           <label class="custom-file-input">
             Choose File
-            <input type="file">
+            <input type="file" id="image">
           </label>
           <input type="text" name="" id="">
-          <div style="position: absolute; right:0;bottom:0; top:0;">
-            <div style="height: 100%; padding: 0px 15px; display:flex; align-items:center; justify-content:center">
+          <div style="position: absolute; right:0;bottom:0; top:0; height:100%; margin-top:0; padding: 0px 10px; display:flex; justify-content:center; align-items:center; ">
               <img src="./assets/svg/link.svg" alt="" style="width: 20px; cursor: pointer">
-            </div>
           </div>
         </div>
       </div>
       <div style="display: flex; justify-content:end">
-        <button>Submit</button>
+        <button type="submit">Submit</button>
       </div>
-  </div>
-  
+  </form>
 
+  <script>
+    function addBlog(event){
+      event.preventDefault();
+      console.log("Hallo")
+
+      const projectName = document.getElementById("project-name").value;
+      const startDate = document.getElementById("start-date").value;
+      const endDate = document.getElementById("end-date").value;
+      const description = document.getElementById("description").value;
+
+      const technologies = Array.from(document.querySelectorAll(".tech-check input[type='checkbox']:checked"))
+                                .map(checkbox => checkbox.nextElementSibling.textContent);
+
+      const imageInput = document.querySelector("#image");
+      const selectedImage = imageInput.files[0];
+      const imageUrl = selectedImage ? URL.createObjectURL(selectedImage) : null; 
+
+      const newProject = {
+        name: projectName,
+        startDate: startDate,
+        endDate: endDate,
+        description: description,
+        technologies: technologies,
+        image: imageUrl,
+      };
+
+      console.log("New Project:", newProject);
+    }
+  </script>
   <script src="./assets/js/script.js"></script>
 </body>
 </html>
+
