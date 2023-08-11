@@ -73,13 +73,13 @@ const DataProject = [
     startDate: new Date("2023-08-01"),
     endDate: new Date("2024-08-12"),
     description:
-      "Website Real Estate: Temukan Rumah Impian Anda dengan Kemudahan dan Kepercayaan Selamat datang di Website Real Estate, destinasi online yang dirancang khusus untuk membantu Anda menemukan properti yang sesuai dengan kebutuhan dan impian Anda. Dengan jaringan luas agen terpercaya dan beragam pilihan properti, kami berkomitmen untuk menjadi mitra Anda dalam perjalanan mencari tempat yang Anda sebut rumah.",
-    technologies: ["socket-io", "react", "javascript"],
+      "Website Real Estate: Temukan Rumah Impian Anda dengan Kemudahan dan Kepercayaan. Selamat datang di Website Real Estate, destinasi online yang dirancang khusus untuk membantu Anda menemukan properti yang sesuai dengan kebutuhan dan impian Anda. Dengan jaringan luas agen terpercaya dan beragam pilihan properti, kami berkomitmen untuk menjadi mitra Anda dalam perjalanan mencari tempat yang Anda sebut rumah.",
+    technologies: ["socket-io", "react", "typescript"],
     image: "../assets/images/project4.png",
     postAt: new Date("2023-08-01T12:00:00"),
   },
   {
-    name: "Belajar Ngaji Landing Page",
+    name: "Belajar Ngaji Website",
     startDate: new Date("2023-07-15"),
     endDate: new Date("2023-07-30"),
     description:
@@ -172,7 +172,6 @@ function addBlog(event) {
 
   if (endDate < startDate) {
     dateValidate.classList.remove("hidden");
-    date.scrollIntoView({ behavior: "smooth", block: "start" });
     hasError = true;
   } else {
     dateValidate.classList.add("hidden");
@@ -180,7 +179,6 @@ function addBlog(event) {
 
   if (description.length <= 150) {
     errorDeskripsi.classList.remove("hidden");
-    Deskripsi.scrollIntoView({ behavior: "smooth", block: "start" });
     hasError = true;
   } else {
     errorDeskripsi.classList.add("hidden");
@@ -188,10 +186,23 @@ function addBlog(event) {
 
   if (technologies.length === 0) {
     errorCheckbox.classList.remove("hidden");
-    Checkbox.scrollIntoView({ behavior: "smooth", block: "start" });
     hasError = true;
   } else {
     errorCheckbox.classList.add("hidden");
+  }
+
+  if (hasError) {
+    if (!dateValidate.classList.contains("hidden")) {
+      scroll(date);
+    } else if (!errorDeskripsi.classList.contains("hidden")) {
+      scroll(Deskripsi);
+    } else if (!errorCheckbox.classList.contains("hidden")) {
+      scroll(Checkbox);
+    }
+  }
+
+  function scroll(props) {
+    props.scrollIntoView({ behavior: "smooth", block: "start" });
   }
 
   if (!hasError) {
