@@ -142,13 +142,14 @@
           <input type="date" id="end-date">
         </div>
       </div>
+      <span class="date-validate hidden" style="color: red; margin: 5px 0px">end date tidak lebih besar dari start date</span>
       <div class="input-form">
-        <label for="description" class="judul">Description</label>
+        <label for="description" class="judul deskription">Description</label>
         <textarea type="text" id="description" style="height: 100px;" required></textarea>
         <span class=" deskripsi-error-validate hidden" style="color: red; margin: 5px 0px">Deskripsi harus lebih dari 150 karakter</span>
       </div>
       <div class="input-form">
-        <label for="checkbox" class="judul">Techbologies</label>
+        <label for="checkbox" class="judul checkox-judul">Technologies</label>
         <div class="tech-check">
           <div class="checkbox">
             <input type="checkbox"  name="checkbox-group" id="node-js" data-tech="node-js">
@@ -197,9 +198,13 @@
   
   <script>
     document.getElementById("description").value = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus quis aut veritatis est officia, nobis ut corrupti nemo esse incidunt laboriosam suscipit animi quaerat quasi asperiores veniam facere maxime saepe, repellendus provident praesentium? Culpa molestias atque fugiat deleniti eos numquam est officiis hic ratione deserunt. Non, impedit. Delectus similique quae voluptas ullam, debitis, atque natus id ducimus ipsum unde, voluptate dolores perspiciatis velit repellendus deserunt recusandae. Ab doloremque tempora voluptatum voluptates laborum iste, quo, consequuntur accusamus magni porro eos soluta? Eligendi est eum quia rem dignissimos? Repellendus, explicabo quisquam architecto voluptate est aliquam esse eos sunt aperiam sit ab voluptatibus, nam, quas soluta reprehenderit natus ea dolorum officia ut? Fuga tempore molestias eligendi earum consequuntur voluptas consequatur nostrum optio architecto in consectetur libero nam recusandae quasi reiciendis, porro corrupti voluptates qui beatae perferendis quaerat. Consequatur quod necessitatibus quisquam ipsam optio, impedit nihil, illum vel velit animi ipsum omnis veniam aliquid?";
+    const startDateInput = document.getElementById("start-date");
+    const currentDate = new Date();
+    startDateInput.value = currentDate.toISOString().substr(0, 10);
   </script>
 
   <script src="./../assets/js/script.js"></script>
 </body>
 </html>
+
 
