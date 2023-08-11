@@ -88,10 +88,14 @@ function renderProjects() {
   DataProject.forEach((project) => {
     const projectHTML = `
           <a href="projectDetail.html" class="card-project">
-            <div style="width:100%">
+            <div style="width:100%; position:relative">
               <img src="${project.image}" alt="" style="width: 100%;">
+              <div style="position:absolute; top: 0; left:0; margin: 10px; padding: 3px 10px; background:black; color:white ">${getFullTime(
+                project.postAt
+              )}</div>
             </div>
             <div>
+            ${getDistanceTime(project.postAt)}
               <p class="judul">${project.name}</p>
               <p>durasi :  ${formatDuration(project.durasi)}</p>
               
@@ -239,58 +243,58 @@ function formatDuration(duration) {
   return parts.join(", ");
 }
 
-// function getFullTime(time) {
-//   let monthName = [
-//     "Jan",
-//     "Feb",
-//     "Mar",
-//     "Apr",
-//     "May",
-//     "Jun",
-//     "Jul",
-//     "Aug",
-//     "Sep",
-//     "Oct",
-//     "Nov",
-//     "Dec",
-//   ];
+function getFullTime(time) {
+  let monthName = [
+    "Jan",
+    "Feb",
+    "Mar",
+    "Apr",
+    "May",
+    "Jun",
+    "Jul",
+    "Aug",
+    "Sep",
+    "Oct",
+    "Nov",
+    "Dec",
+  ];
 
-//   let date = time.getDate();
+  let date = time.getDate();
 
-//   let monthIndex = time.getMonth();
+  let monthIndex = time.getMonth();
 
-//   let year = time.getFullYear();
+  let year = time.getFullYear();
 
-//   let hours = time.getHours();
-//   let minutes = time.getMinutes();
+  let hours = time.getHours();
+  let minutes = time.getMinutes();
 
-//   if (hours <= 9) {
-//     hours = "0" + hours;
-//   } else if (minutes <= 9) {
-//     minutes = "0" + minutes;
-//   }
+  if (hours <= 9) {
+    hours = "0" + hours;
+  } else if (minutes <= 9) {
+    minutes = "0" + minutes;
+  }
 
-//   return `${date} ${monthName[monthIndex]} ${year} ${hours}:${minutes} WIB`;
-// }
+  return `${date} ${monthName[monthIndex]} ${year} ${hours}:${minutes} WIB`;
+}
 
-// function getDistanceTime(time) {
-//   const timeNow = new Date();
-//   const distance = timeNow - time;
+function getDistanceTime(time) {
+  const timeNow = new Date();
+  const distance = timeNow - time;
 
-//   const intervals = [
-//     { label: "days", duration: 24 * 60 * 60 * 1000 },
-//     { label: "hours", duration: 60 * 60 * 1000 },
-//     { label: "minutes", duration: 60 * 1000 },
-//     { label: "seconds", duration: 1000 },
-//   ];
+  const intervals = [
+    { label: "days", duration: 24 * 60 * 60 * 1000 },
+    { label: "hours", duration: 60 * 60 * 1000 },
+    { label: "minutes", duration: 60 * 1000 },
+    { label: "seconds", duration: 1000 },
+  ];
 
-//   for (const interval of intervals) {
-//     const count = Math.floor(distance / interval.duration);
-//     if (count > 0) {
-//       return `${count} ${interval.label} ago`;
-//     }
-//   }
-//   return "Just now";
-// }
+  for (const interval of intervals) {
+    const count = Math.floor(distance / interval.duration);
+    if (count > 0) {
+      return `${count} ${interval.label} ago`;
+    }
+  }
+  return "Just now";
+}
 
-// setInterval(renderProjects, 3000);
+setInterval(renderProjects, 3000);
