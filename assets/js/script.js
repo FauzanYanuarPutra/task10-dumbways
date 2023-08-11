@@ -222,7 +222,7 @@ function calculateDuration(startDate, endDate) {
 
 function formatDuration(duration) {
   if (typeof duration === "string") {
-    return duration; // Return "1 hari" directly
+    return duration;
   }
 
   const parts = [];
