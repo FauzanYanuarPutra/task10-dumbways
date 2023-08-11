@@ -69,25 +69,23 @@ function showAdd() {
 
 const DataProject = [
   {
-    name: "Sample Project 1",
+    name: "Real Estate Website",
     startDate: new Date("2023-08-01"),
-    endDate: new Date("2023-08-10"),
+    endDate: new Date("2024-08-12"),
     description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit, nisi. Cum consequuntur voluptatum mollitia exercitationem, amet totam ipsum ex beatae similique possimus excepturi. Laborum numquam tempore quos nulla quasi, aut eos, suscipit natus alias recusandae ad animi nemo repellat accusamus explicabo voluptatem, doloribus aperiam sit magni quia quo. Dignissimos quas autem officia recusandae minus inventore, tenetur deleniti, placeat alias ad doloremque corporis nostrum cum quae pariatur voluptatum quis necessitatibus? Facilis, officiis odio. Fuga mollitia quasi alias esse. In placeat ad architecto maxime ea a neque impedit! Tempore nihil pariatur quisquam quo? Aliquid voluptatibus amet quas tempora. Autem sapiente alias, magnam adipisci labore similique est soluta officia illum, ipsum, a odit amet veniam omnis cupiditate! Voluptates aperiam dignissimos quaerat. Odit quae officia dolorum asperiores ratione. Debitis, sunt. Ut praesentium accusantium eaque dolore dignissimos quo temporibus voluptate voluptates itaque laborum unde perspiciatis porro totam, tempora officia accusamus similique, optio, blanditiis expedita. Tempore.",
+      "Website Real Estate: Temukan Rumah Impian Anda dengan Kemudahan dan Kepercayaan Selamat datang di Website Real Estate, destinasi online yang dirancang khusus untuk membantu Anda menemukan properti yang sesuai dengan kebutuhan dan impian Anda. Dengan jaringan luas agen terpercaya dan beragam pilihan properti, kami berkomitmen untuk menjadi mitra Anda dalam perjalanan mencari tempat yang Anda sebut rumah.",
     technologies: ["socket-io", "react", "javascript"],
-    image: "../assets/images/project1.png",
-    durasi: { years: 0, months: 0, days: 10 },
+    image: "../assets/images/project4.png",
     postAt: new Date("2023-08-01T12:00:00"),
   },
   {
-    name: "Sample Project 2",
+    name: "Belajar Ngaji Landing Page",
     startDate: new Date("2023-07-15"),
     endDate: new Date("2023-07-30"),
     description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit, nisi. Cum consequuntur voluptatum mollitia exercitationem, amet totam ipsum ex beatae similique possimus excepturi. Laborum numquam tempore quos nulla quasi, aut eos, suscipit natus alias recusandae ad animi nemo repellat accusamus explicabo voluptatem, doloribus aperiam sit magni quia quo. Dignissimos quas autem officia recusandae minus inventore, tenetur deleniti, placeat alias ad doloremque corporis nostrum cum quae pariatur voluptatum quis necessitatibus? Facilis, officiis odio. Fuga mollitia quasi alias esse. In placeat ad architecto maxime ea a neque impedit! Tempore nihil pariatur quisquam quo? Aliquid voluptatibus amet quas tempora. Autem sapiente alias, magnam adipisci labore similique est soluta officia illum, ipsum, a odit amet veniam omnis cupiditate! Voluptates aperiam dignissimos quaerat. Odit quae officia dolorum asperiores ratione. Debitis, sunt. Ut praesentium accusantium eaque dolore dignissimos quo temporibus voluptate voluptates itaque laborum unde perspiciatis porro totam, tempora officia accusamus similique, optio, blanditiis expedita. Tempore.",
+      "Website Belajar Ngaji: Menemani Perjalanan Spiritual Anda Menuju Kedekatan dengan Al-Quran. Selamat datang di website Belajar Ngaji, tempat di mana Anda dapat memulai atau melanjutkan perjalanan spiritual Anda dalam memahami dan menghafal Al-Quran dengan mudah dan nyaman. Kami telah merancang platform ini dengan penuh dedikasi untuk membantu Anda memperdalam hubungan dengan Kitab Suci dan memperluas pemahaman Anda tentang ajaran Islam.",
     technologies: ["react", "node-js"],
     image: "../assets/images/project2.png",
-    durasi: { years: 0, months: 0, days: 15 },
     postAt: new Date("2023-07-15T08:00:00"),
   },
 ];
@@ -112,6 +110,8 @@ function renderProjects() {
   console.log(DataProject);
 
   DataProject.forEach((project) => {
+    project.durasi = calculateDuration(project.startDate, project.endDate);
+
     const projectHTML = `
           <a href="projectDetail.html" class="card-project">
             <div style="width:100%; position:relative">
