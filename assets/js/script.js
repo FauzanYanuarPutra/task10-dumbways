@@ -165,12 +165,12 @@ function addBlog(event) {
   if (!hasError) {
     const newProject = {
       name: document.getElementById("project-name").value,
-      startDate: startDate,
-      endDate: endDate,
+      startDate: new Date(startDate),
+      endDate: new Date(endDate),
       description: description,
       technologies: technologies,
       image: imagePreview.src,
-      durasi: calculateDuration(startDate, endDate),
+      durasi: calculateDuration(new Date(startDate), new Date(endDate)),
       postAt: new Date(),
     };
 
@@ -206,12 +206,9 @@ imageInput.addEventListener("change", function (event) {
 });
 
 function calculateDuration(startDate, endDate) {
-  const start = new Date(startDate);
-  const end = new Date(endDate);
-
-  const yearDiff = end.getFullYear() - start.getFullYear();
-  const monthDiff = end.getMonth() - start.getMonth();
-  const dayDiff = end.getDate() - start.getDate();
+  const yearDiff = endDate.getFullYear() - startDate.getFullYear();
+  const monthDiff = endDate.getMonth() - startDate.getMonth();
+  const dayDiff = endDate.getDate() - startDate.getDate();
 
   if (yearDiff === 0 && monthDiff === 0 && dayDiff === 0) {
     return "1 hari";
