@@ -83,6 +83,7 @@ function iconCard(technologies) {
 function renderProjects() {
   const contentContainer = document.getElementById("content-card-project");
   contentContainer.innerHTML = "";
+  // ${getFullTime(project.postAt)} //
 
   DataProject.forEach((project) => {
     const projectHTML = `
@@ -91,9 +92,8 @@ function renderProjects() {
               <img src="${project.image}" alt="" style="width: 100%;">
             </div>
             <div>
-              // ${getFullTime(project.postAt)}
               <p class="judul">${project.name}</p>
-              <p>durasi :  ${getDistanceTime(project.durasi)}</p>
+              <p>durasi :  ${formatDuration(project.durasi)}</p>
               
               <p class="about">${project.description}</p>
               <div class="icon-project">
@@ -123,12 +123,9 @@ function addBlog(event) {
     document.querySelectorAll(".tech-check input[type='checkbox']:checked")
   ).map((checkbox) => checkbox.getAttribute("data-tech"));
   console.log(technologies);
-
   const imageInput = document.querySelector("#image");
   const selectedImage = imageInput.files[0];
   const imageUrl = selectedImage ? URL.createObjectURL(selectedImage) : null;
-
-  const durasi = calculateMonthDifference(startDate, endDate);
 
   const Checkbox = document.querySelector(".checkox-judul");
   const errorCheckbox = document.querySelector(".checkbox-error-validate");
@@ -139,10 +136,12 @@ function addBlog(event) {
   const date = document.querySelector(".date-project");
   const dateValidate = document.querySelector(".date-validate");
 
+  let hasError = false;
+
   if (endDate < startDate) {
     dateValidate.classList.remove("hidden");
     date.scrollIntoView({ behavior: "smooth", block: "start" });
-    return;
+    hasError = true;
   } else {
     dateValidate.classList.add("hidden");
   }
@@ -150,7 +149,7 @@ function addBlog(event) {
   if (description.length <= 150) {
     errorDeskripsi.classList.remove("hidden");
     Deskripsi.scrollIntoView({ behavior: "smooth", block: "start" });
-    return;
+    hasError = true;
   } else {
     errorDeskripsi.classList.add("hidden");
   }
@@ -158,39 +157,37 @@ function addBlog(event) {
   if (technologies.length === 0) {
     errorCheckbox.classList.remove("hidden");
     Checkbox.scrollIntoView({ behavior: "smooth", block: "start" });
-    return;
+    hasError = true;
   } else {
     errorCheckbox.classList.add("hidden");
   }
 
-  const newProject = {
-    name: projectName,
-    startDate: startDate,
-    endDate: endDate,
-    description: description,
-    technologies: technologies,
-    image: imageUrl,
-    durasi: durasi,
-    postAt: new Date(),
-  };
+  if (!hasError) {
+    const newProject = {
+      name: document.getElementById("project-name").value,
+      startDate: startDate,
+      endDate: endDate,
+      description: description,
+      technologies: technologies,
+      image: imagePreview.src,
+      durasi: calculateDuration(startDate, endDate),
+      postAt: new Date(),
+    };
 
-  // console.log(durasi);
-
-  // console.log("New Project:", newProject);
-  DataProject.push(newProject);
-  // console.log(DataProject);
-  renderProjects();
+    DataProject.push(newProject);
+    renderProjects();
+  }
 }
 
-function calculateMonthDifference(startDate, endDate) {
-  var start = new Date(startDate);
-  var end = new Date(endDate);
+// function calculateMonthDifference(startDate, endDate) {
+//   var start = new Date(startDate);
+//   var end = new Date(endDate);
 
-  var yearDiff = end.getFullYear() - start.getFullYear();
-  var monthDiff = end.getMonth() - start.getMonth();
+//   var yearDiff = end.getFullYear() - start.getFullYear();
+//   var monthDiff = end.getMonth() - start.getMonth();
 
-  return yearDiff * 12 + monthDiff || 0;
-}
+//   return yearDiff * 12 + monthDiff || 0;
+// }
 
 const imageInput = document.querySelector("#image");
 const imagePreview = document.querySelector("#image-preview");
@@ -208,58 +205,95 @@ imageInput.addEventListener("change", function (event) {
   }
 });
 
-function getFullTime(time) {
-  let monthName = [
-    "Jan",
-    "Feb",
-    "Mar",
-    "Apr",
-    "May",
-    "Jun",
-    "Jul",
-    "Aug",
-    "Sep",
-    "Oct",
-    "Nov",
-    "Dec",
-  ];
+function calculateDuration(startDate, endDate) {
+  const start = new Date(startDate);
+  const end = new Date(endDate);
 
-  let date = time.getDate();
+  const yearDiff = end.getFullYear() - start.getFullYear();
+  const monthDiff = end.getMonth() - start.getMonth();
+  const dayDiff = end.getDate() - start.getDate();
 
-  let monthIndex = time.getMonth();
-
-  let year = time.getFullYear();
-
-  let hours = time.getHours();
-  let minutes = time.getMinutes();
-
-  if (hours <= 9) {
-    hours = "0" + hours;
-  } else if (minutes <= 9) {
-    minutes = "0" + minutes;
+  if (yearDiff === 0 && monthDiff === 0 && dayDiff === 0) {
+    return "1 hari";
   }
 
-  return `${date} ${monthName[monthIndex]} ${year} ${hours}:${minutes} WIB`;
+  return { years: yearDiff, months: monthDiff, days: dayDiff + 1 };
 }
 
-function getDistanceTime(time) {
-  const timeNow = new Date();
-  const distance = timeNow - time;
-
-  const intervals = [
-    { label: "days", duration: 24 * 60 * 60 * 1000 },
-    { label: "hours", duration: 60 * 60 * 1000 },
-    { label: "minutes", duration: 60 * 1000 },
-    { label: "seconds", duration: 1000 },
-  ];
-
-  for (const interval of intervals) {
-    const count = Math.floor(distance / interval.duration);
-    if (count > 0) {
-      return `${count} ${interval.label} ago`;
-    }
+function formatDuration(duration) {
+  if (typeof duration === "string") {
+    return duration; // Return "1 hari" directly
   }
-  return "Just now";
+
+  const parts = [];
+
+  if (duration.years > 0) {
+    parts.push(`${duration.years} tahun`);
+  }
+
+  if (duration.months > 0) {
+    parts.push(`${duration.months} bulan`);
+  }
+
+  if (duration.days > 0) {
+    parts.push(`${duration.days} hari`);
+  }
+
+  return parts.join(", ");
 }
 
-setInterval(renderProjects, 3000);
+// function getFullTime(time) {
+//   let monthName = [
+//     "Jan",
+//     "Feb",
+//     "Mar",
+//     "Apr",
+//     "May",
+//     "Jun",
+//     "Jul",
+//     "Aug",
+//     "Sep",
+//     "Oct",
+//     "Nov",
+//     "Dec",
+//   ];
+
+//   let date = time.getDate();
+
+//   let monthIndex = time.getMonth();
+
+//   let year = time.getFullYear();
+
+//   let hours = time.getHours();
+//   let minutes = time.getMinutes();
+
+//   if (hours <= 9) {
+//     hours = "0" + hours;
+//   } else if (minutes <= 9) {
+//     minutes = "0" + minutes;
+//   }
+
+//   return `${date} ${monthName[monthIndex]} ${year} ${hours}:${minutes} WIB`;
+// }
+
+// function getDistanceTime(time) {
+//   const timeNow = new Date();
+//   const distance = timeNow - time;
+
+//   const intervals = [
+//     { label: "days", duration: 24 * 60 * 60 * 1000 },
+//     { label: "hours", duration: 60 * 60 * 1000 },
+//     { label: "minutes", duration: 60 * 1000 },
+//     { label: "seconds", duration: 1000 },
+//   ];
+
+//   for (const interval of intervals) {
+//     const count = Math.floor(distance / interval.duration);
+//     if (count > 0) {
+//       return `${count} ${interval.label} ago`;
+//     }
+//   }
+//   return "Just now";
+// }
+
+// setInterval(renderProjects, 3000);
