@@ -67,7 +67,31 @@ function showAdd() {
 
 // POST BLOG / PROJECT
 
-const DataProject = [];
+const DataProject = [
+  {
+    name: "Sample Project 1",
+    startDate: new Date("2023-08-01"),
+    endDate: new Date("2023-08-10"),
+    description:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit, nisi. Cum consequuntur voluptatum mollitia exercitationem, amet totam ipsum ex beatae similique possimus excepturi. Laborum numquam tempore quos nulla quasi, aut eos, suscipit natus alias recusandae ad animi nemo repellat accusamus explicabo voluptatem, doloribus aperiam sit magni quia quo. Dignissimos quas autem officia recusandae minus inventore, tenetur deleniti, placeat alias ad doloremque corporis nostrum cum quae pariatur voluptatum quis necessitatibus? Facilis, officiis odio. Fuga mollitia quasi alias esse. In placeat ad architecto maxime ea a neque impedit! Tempore nihil pariatur quisquam quo? Aliquid voluptatibus amet quas tempora. Autem sapiente alias, magnam adipisci labore similique est soluta officia illum, ipsum, a odit amet veniam omnis cupiditate! Voluptates aperiam dignissimos quaerat. Odit quae officia dolorum asperiores ratione. Debitis, sunt. Ut praesentium accusantium eaque dolore dignissimos quo temporibus voluptate voluptates itaque laborum unde perspiciatis porro totam, tempora officia accusamus similique, optio, blanditiis expedita. Tempore.",
+    technologies: ["socket-io", "react", "javascript"],
+    image: "../assets/images/project1.png",
+    durasi: { years: 0, months: 0, days: 10 },
+    postAt: new Date("2023-08-01T12:00:00"),
+  },
+  {
+    name: "Sample Project 2",
+    startDate: new Date("2023-07-15"),
+    endDate: new Date("2023-07-30"),
+    description:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit, nisi. Cum consequuntur voluptatum mollitia exercitationem, amet totam ipsum ex beatae similique possimus excepturi. Laborum numquam tempore quos nulla quasi, aut eos, suscipit natus alias recusandae ad animi nemo repellat accusamus explicabo voluptatem, doloribus aperiam sit magni quia quo. Dignissimos quas autem officia recusandae minus inventore, tenetur deleniti, placeat alias ad doloremque corporis nostrum cum quae pariatur voluptatum quis necessitatibus? Facilis, officiis odio. Fuga mollitia quasi alias esse. In placeat ad architecto maxime ea a neque impedit! Tempore nihil pariatur quisquam quo? Aliquid voluptatibus amet quas tempora. Autem sapiente alias, magnam adipisci labore similique est soluta officia illum, ipsum, a odit amet veniam omnis cupiditate! Voluptates aperiam dignissimos quaerat. Odit quae officia dolorum asperiores ratione. Debitis, sunt. Ut praesentium accusantium eaque dolore dignissimos quo temporibus voluptate voluptates itaque laborum unde perspiciatis porro totam, tempora officia accusamus similique, optio, blanditiis expedita. Tempore.",
+    technologies: ["react", "node-js"],
+    image: "../assets/images/project2.png",
+    durasi: { years: 0, months: 0, days: 15 },
+    postAt: new Date("2023-07-15T08:00:00"),
+  },
+];
+renderProjects();
 
 function iconCard(technologies) {
   console.log(technologies);
@@ -85,17 +109,21 @@ function renderProjects() {
   contentContainer.innerHTML = "";
   // ${getFullTime(project.postAt)} //
 
+  console.log(DataProject);
+
   DataProject.forEach((project) => {
     const projectHTML = `
           <a href="projectDetail.html" class="card-project">
             <div style="width:100%; position:relative">
               <img src="${project.image}" alt="" style="width: 100%;">
-              <div style="position:absolute; top: 0; left:0; margin: 10px; padding: 3px 10px; background:black; color:white ">${getFullTime(
+              <div style="position:absolute; top: 0; left:0; margin: 10px; padding: 3px 10px; background:orangered; color:white ">${getFullTime(
+                project.postAt
+              )}</div>
+              <div style="position:absolute; bottom: 0; left:0; margin: 10px; padding: 3px 10px;  background-color: rgba(0, 0, 0, 0.8); color:white ">${getDistanceTime(
                 project.postAt
               )}</div>
             </div>
             <div>
-            ${getDistanceTime(project.postAt)}
               <p class="judul">${project.name}</p>
               <p>durasi :  ${formatDuration(project.durasi)}</p>
               
