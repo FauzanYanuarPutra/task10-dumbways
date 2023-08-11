@@ -135,14 +135,15 @@
       <div class="date-project input-form">
         <div>
           <label for="start-date"  class="judul">Start Date</label>
-          <input type="date" id="start-date">
+          <input type="date" id="start-date" required>
         </div>
         <div>
           <label for="end-date" class="judul">End Date</label>
-          <input type="date" id="end-date">
+          <input type="date" id="end-date" required>
         </div>
       </div>
-      <span class="date-validate hidden" style="color: red; margin: 5px 0px">end date tidak lebih besar dari start date</span>
+      <span class="date-validate-null hidden" style="color: red; margin: 5px 0px">start date & en date tidal boleh kosong</span>
+      <span class="date-validate hidden" style="color: red; margin: 5px 0px">end date tidak boleh sebelum start date</span>
       <div class="input-form">
         <label for="description" class="judul deskription">Description</label>
         <textarea type="text" id="description" style="height: 100px;" required></textarea>
@@ -180,7 +181,7 @@
         <div style="display:flex; margin-top:5px; position:relative;" class="custom-file" >
           <label class="custom-file-input">
             Choose File
-            <input type="file" id="image">
+            <input type="file" id="image" required>
           </label>
           <input type="text" name="" id="">
           <div style="position: absolute; right:0;bottom:0; top:0; height:100%; margin-top:0; padding: 0px 10px; display:flex; justify-content:center; align-items:center; ">
