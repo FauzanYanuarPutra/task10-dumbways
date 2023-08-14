@@ -86,7 +86,7 @@ const DataProject = [
       "Website Belajar Ngaji: Menemani Perjalanan Spiritual Anda Menuju Kedekatan dengan Al-Quran. Selamat datang di website Belajar Ngaji, tempat di mana Anda dapat memulai atau melanjutkan perjalanan spiritual Anda dalam memahami dan menghafal Al-Quran dengan mudah dan nyaman. Kami telah merancang platform ini dengan penuh dedikasi untuk membantu Anda memperdalam hubungan dengan Kitab Suci dan memperluas pemahaman Anda tentang ajaran Islam.",
     technologies: ["react", "node-js"],
     image: "../assets/images/project2.png",
-    postAt: new Date("2023-07-15T08:00:00"),
+    postAt: new Date("2023-07-15T08:01:00"),
   },
 ];
 renderProjects();
@@ -155,9 +155,9 @@ function addBlog(event) {
     document.querySelectorAll(".tech-check input[type='checkbox']:checked")
   ).map((checkbox) => checkbox.getAttribute("data-tech"));
   console.log(technologies);
-  const imageInput = document.querySelector("#image");
-  const selectedImage = imageInput.files[0];
-  const imageUrl = selectedImage ? URL.createObjectURL(selectedImage) : null;
+  // const imageInput = document.querySelector("#image");
+  // const selectedImage = imageInput.files[0];
+  // const imageUrl = selectedImage ? URL.createObjectURL(selectedImage) : null;
 
   const Checkbox = document.querySelector(".checkox-judul");
   const errorCheckbox = document.querySelector(".checkbox-error-validate");
@@ -207,7 +207,7 @@ function addBlog(event) {
 
   if (!hasError) {
     const newProject = {
-      name: document.getElementById("project-name").value,
+      name: projectName,
       startDate: new Date(startDate),
       endDate: new Date(endDate),
       description: description,
@@ -299,17 +299,15 @@ function getFullTime(time) {
   ];
 
   let date = time.getDate();
-
   let monthIndex = time.getMonth();
-
   let year = time.getFullYear();
-
   let hours = time.getHours();
   let minutes = time.getMinutes();
 
   if (hours <= 9) {
     hours = "0" + hours;
-  } else if (minutes <= 9) {
+  }
+  if (minutes <= 9) {
     minutes = "0" + minutes;
   }
 
