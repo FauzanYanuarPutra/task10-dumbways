@@ -1,15 +1,3 @@
-// console.log("Hello World!");
-
-// let nama = `Muhammad Fauzan`;
-// let umur = 12;
-// let isTua = false;
-
-// console.log(
-//   `nama saya ${nama}, umur saya ${umur + umur} tahun ${
-//     isTua ? "Sudah tua" : ""
-//   }`
-// );
-
 function submitForm() {
   let name = document.getElementById("input-name").value;
   let email = document.getElementById("input-email").value;
@@ -29,11 +17,6 @@ function submitForm() {
     return alert("Message harus diisi!");
   }
 
-  // console.log(name);
-  // console.log(email);
-  // console.log(phone);
-  // console.log(subject);
-  // console.log(message);
 
   const kiriman = {
     name: name,
@@ -105,7 +88,6 @@ function iconCard(technologies) {
 function renderProjects() {
   const contentContainer = document.getElementById("content-card-project");
   contentContainer.innerHTML = "";
-  // ${getFullTime(project.postAt)} //
 
   console.log(DataProject);
 
@@ -154,10 +136,6 @@ function addBlog(event) {
   const technologies = Array.from(
     document.querySelectorAll(".tech-check input[type='checkbox']:checked")
   ).map((checkbox) => checkbox.getAttribute("data-tech"));
-  console.log(technologies);
-  // const imageInput = document.querySelector("#image");
-  // const selectedImage = imageInput.files[0];
-  // const imageUrl = selectedImage ? URL.createObjectURL(selectedImage) : null;
 
   const Checkbox = document.querySelector(".checkox-judul");
   const errorCheckbox = document.querySelector(".checkbox-error-validate");
@@ -221,16 +199,6 @@ function addBlog(event) {
     renderProjects();
   }
 }
-
-// function calculateMonthDifference(startDate, endDate) {
-//   var start = new Date(startDate);
-//   var end = new Date(endDate);
-
-//   var yearDiff = end.getFullYear() - start.getFullYear();
-//   var monthDiff = end.getMonth() - start.getMonth();
-
-//   return yearDiff * 12 + monthDiff || 0;
-// }
 
 const imageInput = document.querySelector("#image");
 const imagePreview = document.querySelector("#image-preview");

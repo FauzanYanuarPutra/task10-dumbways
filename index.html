@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,24 +8,27 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="./assets/css/index.css">
+  <link rel="stylesheet" href="./assets/css/navbar.css">
+
   <style>
     .about-me {
       display: -webkit-box;
-      -webkit-line-clamp: 8; 
+      -webkit-line-clamp: 8;
       -webkit-box-orient: vertical;
       overflow: hidden;
       text-overflow: ellipsis;
     }
   </style>
 </head>
+
 <body>
   <nav>
     <div>
       <div>
-          <img src="./assets/images/logo.png" alt="" style="width: 45px; margin-right: 10px;">
+        <img src="./assets/images/logo.png" alt="" style="width: 45px; margin-right: 10px;">
       </div>
-      <div >
-        <ul>
+      <div>
+        <ul class="mobile">
           <li>
             <a href="index.html" class="active">Home</a>
           </li>
@@ -45,53 +49,76 @@
         <li>
           <a href="https://muhammadfauzan.netlify.app/">Login</a>
         </li> -->
-        <li>
+        <li class="mobile">
           <a href="./pages/contact.html" class="contact">Contact</a>
+        </li>
+        <li  class="desktop">
+          <div onclick="buttonMenu()" id="menu" style="cursor: pointer">
+            <img src="./assets/svg/menu.svg" alt="" width="30px">
+          </div>
         </li>
       </ul>
     </div>
   </nav>
-  <div id="content" style="margin: 50px auto;  ">
+
+  <div class="menu-container" id="menu-container">
+    <div onclick="buttonMenu()"  style="position: absolute; top: 0; right: 0; margin: 30px; cursor: pointer">
+      <img src="./../assets/svg/close.svg" alt="" style="width: 30px;">
+    </div>
+
+    <a href="index.html" class="active" >Home</a>
+    <a href="./pages/project.html" >My Project</a>
+    <a href="./pages/contact.html" >Contact</a>
+  </div>
+
+
+  <div id="content">
     <div id="about">
       <h1 style="margin-bottom: 10px;">Hi Welcome to my hut</h1>
       <p style="text-align: justify;" class="about-me">
-        Halo, saya adalah seorang pengembang web full stack yang memiliki pengalaman luas dalam berbagai teknologi dan alat pengembangan web modern. Dengan keahlian mendalam dalam HTML, CSS, dan JavaScript, saya memiliki kemampuan untuk merancang dan membangun tampilan web yang menarik dan responsif, menghadirkan pengalaman pengguna yang luar biasa.
-        Saya juga memiliki keahlian dalam kerangka kerja dan pustaka seperti React JS dan Vue Js, yang memungkinkan saya untuk menciptakan antarmuka pengguna yang dinamis dan interaktif. 
+        Halo, saya adalah seorang pengembang web full stack yang memiliki pengalaman luas dalam berbagai teknologi dan
+        alat pengembangan web modern. Dengan keahlian mendalam dalam HTML, CSS, dan JavaScript, saya memiliki kemampuan
+        untuk merancang dan membangun tampilan web yang menarik dan responsif, menghadirkan pengalaman pengguna yang
+        luar biasa.
+        Saya juga memiliki keahlian dalam kerangka kerja dan pustaka seperti React JS dan Vue Js, yang memungkinkan saya
+        untuk menciptakan antarmuka pengguna yang dinamis dan interaktif.
       </p>
       <div style="margin: 30px 0px; display: flex; align-items:center">
         <div style="margin-right: 5px;">
-          <a href="https://muhammadfauzan.netlify.app/" id="contact" >Contact</a>
+          <a href="https://muhammadfauzan.netlify.app/" id="contact">Contact</a>
         </div>
         <a href="https://muhammadfauzan.netlify.app/" id="download" style="display: flex;">
-          download CV 
+          download CV
           <img src="./assets/svg/download.svg" alt="SVG Image" style="width: 25px; margin-left: 5px">
         </a>
-        </div>
-        
-        <div id="social-media">
-          <a href="https://www.linkedin.com/in/muhammad-fauzan-046246253/">
-            <img src="./assets/svg/linkind.svg" alt="SVG Image" style="width: 40px;">
-          </a>
-          <a href="https://www.instagram.com/fauzanyanuarputra/">
-            <img src="./assets/svg/instagram.svg" alt="SVG Image" style="width: 35px;">
-          </a>
-          <a href="https://muhammadfauzan.netlify.app/">
-            <img src="./assets/svg/facebook.svg" alt="SVG Image" style="width: 38px;">
-          </a>
-          <a href="https://muhammadfauzan.netlify.app/">
-            <img src="./assets/svg/twitter.svg" alt="SVG Image" style="width: 40px;">
-            
-          </a>
+      </div>
+
+      <div id="social-media">
+        <a href="https://www.linkedin.com/in/muhammad-fauzan-046246253/">
+          <img src="./assets/svg/linkind.svg" alt="SVG Image" style="width: 40px;">
+        </a>
+        <a href="https://www.instagram.com/fauzanyanuarputra/">
+          <img src="./assets/svg/instagram.svg" alt="SVG Image" style="width: 35px;">
+        </a>
+        <a href="https://muhammadfauzan.netlify.app/">
+          <img src="./assets/svg/facebook.svg" alt="SVG Image" style="width: 38px;">
+        </a>
+        <a href="https://muhammadfauzan.netlify.app/">
+          <img src="./assets/svg/twitter.svg" alt="SVG Image" style="width: 40px;">
+
+        </a>
       </div>
     </div>
-      <div id="card" >
-        <img src="./assets/images/me.jpeg" alt="">
-        <div style="padding: 20px;">
-          <p style=" font-weight: 500; font-size: 15px">Muhammad Fauzan</p>
-          <p>Fullstack Developer</p>
-        </div>
+    <div id="card">
+      <img src="./assets/images/me.jpeg" alt="">
+      <div style="padding: 20px;">
+        <p style=" font-weight: 500; font-size: 15px">Muhammad Fauzan</p>
+        <p>Fullstack Developer</p>
       </div>
+    </div>
   </div>
+
+  <script src="./assets/js/index.js"></script>
 </body>
 </html>
 

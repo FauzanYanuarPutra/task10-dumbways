@@ -7,6 +7,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="./../assets/css/index.css">
+  <link rel="stylesheet" href="../assets/css/navbar.css">
+
   <style>
     h1 {
       text-align: center;
@@ -17,27 +19,51 @@
   <nav>
     <div>
       <div>
-          <img src="./../assets/images/logo.png" alt="" style="width: 45px; margin-right: 10px;">
+        <img src="../assets/images/logo.png" alt="" style="width: 45px; margin-right: 10px;">
       </div>
       <div>
-        <ul>
+        <ul class="mobile">
           <li>
-            <a href="./../index.html">Home</a>
+            <a href="../index.html" >Home</a>
           </li>
           <li>
-            <a href="project.html"  class="active">My Project</a>
+            <a href="./project.html" class="active" >My Project</a>
           </li>
+          <!-- <li>
+            <a href="https://muhammadfauzan.netlify.app/">Testimonials</a>
+          </li> -->
         </ul>
       </div>
     </div>
     <div>
-      <ul>
+      <ul style="display: flex; align-items:center">
+        <!-- <li>
+          <a href="https://muhammadfauzan.netlify.app/">Register</a>
+        </li>
         <li>
-          <a href="contact.html" class="contact">Contact</a>
+          <a href="https://muhammadfauzan.netlify.app/">Login</a>
+        </li> -->
+        <li class="mobile">
+          <a href="./contact.html" class="contact">Contact</a>
+        </li>
+        <li  class="desktop">
+          <div onclick="buttonMenu()" id="menu" style="cursor: pointer">
+            <img src="../assets/svg/menu.svg" alt="" width="30px">
+          </div>
         </li>
       </ul>
     </div>
   </nav>
+
+  <div class="menu-container" id="menu-container">
+    <div onclick="buttonMenu()"  style="position: absolute; top: 0; right: 0; margin: 30px; cursor: pointer">
+      <img src="./../assets/svg/close.svg" alt="" style="width: 30px;">
+    </div>
+    <a href="../index.html">Home</a>
+    <a href="./project.html"  class="active" >My Project</a>
+    <a href="./contact.html" >Contact</a>
+  </div>
+
   <div style="margin: 50px auto; width:80% ">
     <h1>Dumbways Web App</h1>
     <div id="project-detail-header">
@@ -97,5 +123,7 @@
       Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laborum excepturi illum nam minus sunt aliquid quo? Veritatis quisquam accusamus autem vel assumenda? Officiis officia sunt blanditiis qui quaerat ipsum magni, unde rem aperiam minus ratione tempora enim quas deleniti dicta facere non veritatis nesciunt maiores voluptatibus recusandae. Nisi aspernatur possimus repellendus inventore eveniet cumque. At obcaecati omnis numquam cupiditate ab, provident reiciendis alias minima in vel accusamus, odio sunt repellendus eaque. Quibusdam delectus accusamus explicabo vel praesentium unde similique quam perferendis ea suscipit culpa, esse numquam ratione magnam excepturi neque quaerat nemo quas officiis laborum ullam, enim alias iusto fuga! Dolorem porro, praesentium fugit et consectetur beatae sapiente. Fugiat facere vero saepe dicta debitis deleniti odit id aperiam nesciunt rerum maxime officia perspiciatis, ipsam dolore animi, quaerat minus quo in. Necessitatibus, quibusdam autem. Rem fuga sint delectus at perspiciatis minus ducimus et vel facere repudiandae sapiente, dignissimos aliquid autem. Sunt ea, debitis vel accusamus alias placeat nesciunt distinctio quod aliquam odit itaque deleniti laudantium quas quidem fugit quae reiciendis laboriosam perferendis saepe dolorem beatae vitae animi incidunt? Assumenda nulla sed suscipit! Modi, consequuntur aut suscipit mollitia quis rerum quo perferendis maxime dolorum pariatur, illo ad veniam architecto neque necessitatibus reiciendis blanditiis asperiores magni soluta exercitationem aliquam a ea. Ea, quisquam odit earum tempore consequuntur dolores quia possimus, modi suscipit voluptas blanditiis magnam provident et illo fugit, quod amet a. Laboriosam asperiores non quidem sapiente, ratione iure quibusdam ut sunt distinctio vitae. Odit aspernatur mollitia enim id iusto quibusdam eligendi similique eum et in iure nostrum molestiae distinctio culpa tempore consectetur, velit dolorem, assumenda totam. Doloribus esse a nobis, animi nisi ducimus minus veniam, omnis voluptatum mollitia illum quam fugit beatae voluptatibus corporis asperiores sequi blanditiis ipsam! Eveniet fugit officia nobis. Provident sequi voluptatem hic, consectetur cupiditate fugit dolor est vitae totam porro voluptate ad fuga soluta corporis reiciendis culpa officiis libero nemo quo. Magni suscipit quos perspiciatis autem modi porro facere officiis sunt. Aperiam molestias inventore blanditiis non ratione fugit! Voluptatem omnis modi nulla quidem minus fuga consequatur sunt nostrum nihil corporis! Delectus sed sit culpa nulla odit est, explicabo, vel enim suscipit repellendus dolorem totam fugiat cum rem porro illum quaerat cupiditate, modi laudantium quod mollitia harum! Esse, voluptates. Voluptas debitis nostrum in odit repellendus suscipit nisi quis dolore consectetur error assumenda, voluptate totam culpa similique molestias molestiae veritatis quasi reiciendis amet odio minima deleniti iusto sapiente. Ratione a aperiam non nisi, earum explicabo eum beatae totam nemo modi odit. Asperiores, aperiam? Dolore itaque quo voluptatem facere in nobis autem impedit, ad rem possimus dolorem incidunt quisquam repellendus explicabo sed sapiente. Enim ex sunt recusandae, illum sequi, est et aliquid fugiat veniam odio quasi illo perferendis? Fugiat exercitationem, voluptates commodi provident deleniti nisi quisquam doloremque fuga alias praesentium possimus! Porro repudiandae excepturi, asperiores nisi quae delectus inventore error itaque nulla, numquam, id amet obcaecati laudantium maiores nihil adipisci molestiae esse ratione odio dolores eos? Beatae veritatis eveniet animi. Voluptatibus incidunt distinctio quibusdam. Est error temporibus modi eius consectetur ipsum!
     </div>
   </div>
+  <script src="../assets/js/index.js"></script>
+
 </body>
 </html>

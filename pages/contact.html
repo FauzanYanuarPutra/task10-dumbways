@@ -8,33 +8,60 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./../assets/css/index.css">
+  <link rel="stylesheet" href="./../assets/css/navbar.css">
+
 </head>
 <body>
-  <nav >
+  <nav>
     <div>
       <div>
-          <img src="./../assets/images/logo.png" alt="" style="width: 45px; margin-right: 10px;">
+        <img src="../assets/images/logo.png" alt="" style="width: 45px; margin-right: 10px;">
       </div>
       <div>
-        <ul>
+        <ul class="mobile">
           <li>
-            <a href="./../index.html">Home</a>
+            <a href="../index.html">Home</a>
           </li>
           <li>
-            <a href="project.html">My Project</a>
+            <a href="./project.html" >My Project</a>
           </li>
+          <!-- <li>
+            <a href="https://muhammadfauzan.netlify.app/">Testimonials</a>
+          </li> -->
         </ul>
       </div>
     </div>
     <div>
-      <ul>
+      <ul style="display: flex; align-items:center">
+        <!-- <li>
+          <a href="https://muhammadfauzan.netlify.app/">Register</a>
+        </li>
         <li>
-          <a href="contact.html" class="contact">Contact</a>
+          <a href="https://muhammadfauzan.netlify.app/">Login</a>
+        </li> -->
+        <li class="mobile">
+          <a href="./contact.html" class="contact" >Contact</a>
+        </li>
+        <li  class="desktop">
+          <div onclick="buttonMenu()" id="menu" style="cursor: pointer">
+            <img src="../assets/svg/menu.svg" alt="" width="30px">
+          </div>
         </li>
       </ul>
     </div>
   </nav>
-  <div>
+
+  <div class="menu-container" id="menu-container">
+    <div onclick="buttonMenu()"  style="position: absolute; top: 0; right: 0; margin: 30px; cursor: pointer">
+      <img src="./../assets/svg/close.svg" alt="" style="width: 30px;">
+    </div>
+
+    <a href="../index.html">Home</a>
+    <a href="./project.html">My Project</a>
+    <a href="./contact.html"   class="active" >Contact</a>
+  </div>
+
+  <div class="contact">
     <form onsubmit="submitForm()">
       <div>
         <label for="input-name">Name</label>
@@ -73,6 +100,8 @@
   </div>
 
   <script src="./../assets/js/script.js"></script>
+  <script src="./../assets/js/index.js"></script>
+
 </body>
 </html>
 
