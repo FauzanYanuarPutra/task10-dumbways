@@ -17,7 +17,6 @@ function submitForm() {
     return alert("Message harus diisi!");
   }
 
-
   const kiriman = {
     name: name,
     email: email,
@@ -80,7 +79,7 @@ function iconCard(technologies) {
   return technologies
     .map(
       (tech) =>
-        `<img src="./..//assets/svg/${tech}.svg" alt="${tech}" style="width: 20px; height: 20px;">`
+        `<img src="./../assets/svg/${tech}.svg" alt="${tech}" style="width: 20px; height: 20px;">`
     )
     .join("");
 }

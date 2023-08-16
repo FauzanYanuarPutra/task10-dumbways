@@ -1,0 +1,32 @@
+#testimonials {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 10px;
+}
+
+#testimonials .testimonial img {
+  height: 200px;
+  width: 100%;
+  object-fit: cover;
+}
+
+.testimonial {
+  box-shadow: 0px 0px 12px -5px rgba(0, 0, 0, 0.8);
+  padding: 15px;
+  border-radius: 20px;
+}
+
+.testimonial blockquote {
+
+}
+
+.testimonial p {
+  display: flex;
+  justify-content: end;
+  margin-top: 15px;
+  font-weight: bold
+}
+
+.content-testi {
+  margin: 20px 0px
+}
