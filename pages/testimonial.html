@@ -65,13 +65,23 @@
   <div class="content-project" style="margin: 50px auto;">
     <h1 style="margin: 20px 0px;">My Testimonials</h1>
 
-    <div id="testimonials">
-
+    <div class="filter-button">
+      <button class="filter-button active-button" onclick='filterrating("all")'>All</button>
+      <button class="filter-button" onclick='filterrating("1")'><div>1 <img src="../assets/svg/star.svg" alt="" width="18px" class="active-svg"></div></button>
+      <button class="filter-button" onclick='filterrating("2")'><div>2 <img src="../assets/svg/star.svg" alt="" width="18px" class="active-svg"></div></button>
+      <button class="filter-button" onclick='filterrating("3")'><div>3 <img src="../assets/svg/star.svg" alt="" width="18px" class="active-svg"></div></button>
+      <button class="filter-button" onclick='filterrating("4")'><div>4 <img src="../assets/svg/star.svg" alt="" width="18px" class="active-svg"></div></button>
+      <button class="filter-button" onclick='filterrating("5")'><div>5 <img src="../assets/svg/star.svg" alt="" width="18px" class="active-svg"></div></button>
     </div>
-  </div>
+    <div id="testimonials"></div>
   <script src="./../assets/js/index.js"></script>
   <script src="./../assets/js/testimonial.js"></script>
 </body>
 </html>
+
+
+
+
+
 
 

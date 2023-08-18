@@ -30,3 +30,45 @@
 .content-testi {
   margin: 20px 0px
 }
+
+button {
+  background-color: black;
+  color: white;
+  font-size: 12px;
+  padding: 5px 10px;
+}
+
+button:hover {
+  background-color: orangered;
+}
+
+.active-button {
+  background-color: orangered;
+  color: white;
+}
+
+.filter-button {
+  display: flex;
+  width: 100%;
+  gap: 5px;
+  margin: 20px auto;
+}
+@media (min-width: 768px) {
+  .filter-button {
+    width: 80%;
+  }
+}
+.filter-button button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.filter-button button div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 3px;
+  color: white;
+}
+
