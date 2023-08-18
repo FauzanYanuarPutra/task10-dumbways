@@ -177,11 +177,15 @@ const testimonialData = [
     author: "Malcolm X",
     quote: "Empowering the voiceless with digital empowerment!",
     image: "https://source.unsplash.com/200x200/?face",
-    rating: 1,
+    rating: 4,
   },
 ];
 
-const testimonialsContainer = document.getElementById("testimonials");
+const testimonialsContainer = document.querySelector("#testimonials .data");
+const testimonialsContainerError = document.querySelector(
+  "#testimonials .data-error"
+);
+
 const filterButtons = document.querySelectorAll(".filter-button");
 
 function renderTestimonials(filter) {
@@ -204,7 +208,9 @@ function renderTestimonials(filter) {
 
     testimonialsContainer.innerHTML = testimonialsHTML;
   } else {
-    testimonialsContainer.innerHTML = "<h4>Data Not Found!</h4>";
+    testimonialsContainer.innerHTML = "";
+    testimonialsContainerError.innerHTML =
+      "<h4 style='display: flex; justify-content: center; font-size: 20px'>Data Not Found!</h4>";
   }
 }
 
