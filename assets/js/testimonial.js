@@ -26,16 +26,21 @@ class Testimonial {
   }
 
   get testimonialHTML() {
+    const filledStars = "★".repeat(this.rating);
+    const emptyStars = "☆".repeat(5 - this.rating);
+
     return `
-          <div class="testimonial">
-            <img src="${this.image}" alt="Testimonial Image">
-            <div class="content-testi">
-              <blockquote>"${this.quote}"</blockquote>
-              <p>- ${this.author}</p>
-              <p>Rating: ${this.rating}</p>
-            </div>
-          </div>
-        `;
+      <div class="testimonial">
+        <img src="${this.image}" alt="Testimonial Image">
+        <div class="content-testi">
+          <blockquote>"${this.quote}"</blockquote>
+          <p>- ${this.author}</p>
+          <p>
+            <span class="stars" style="font-size: 17px">${filledStars}${emptyStars}</span>
+          </p>
+        </div>
+      </div>
+    `;
   }
 }
 
@@ -199,7 +204,7 @@ function renderTestimonials(filter) {
 
     testimonialsContainer.innerHTML = testimonialsHTML;
   } else {
-    testimonialsContainer.innerHTML = "<h4>Data Kosong</h4>";
+    testimonialsContainer.innerHTML = "<h4>Data Not Found!</h4>";
   }
 }
 
