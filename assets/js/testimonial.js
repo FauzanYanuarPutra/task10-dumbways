@@ -36,7 +36,7 @@ class Testimonial {
           <blockquote>"${this.quote}"</blockquote>
           <p>- ${this.author}</p>
           <p>
-            <span class="stars" style="font-size: 17px">${filledStars}${emptyStars}</span>
+            <span class="stars" style="font-size: 17px"><span style="color: orangered; font-size: 17px">${filledStars}</span>${emptyStars}</span>
           </p>
         </div>
       </div>
