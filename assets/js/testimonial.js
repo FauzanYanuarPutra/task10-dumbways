@@ -207,6 +207,7 @@ function renderTestimonials(filter) {
       .join("");
 
     testimonialsContainer.innerHTML = testimonialsHTML;
+    testimonialsContainerError.innerHTML = "";
   } else {
     testimonialsContainer.innerHTML = "";
     testimonialsContainerError.innerHTML =
