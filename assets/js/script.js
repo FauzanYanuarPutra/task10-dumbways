@@ -125,7 +125,7 @@ function renderProjects() {
 }
 function addBlog(event) {
   event.preventDefault();
-  console.log("Hallo");
+  // console.log("Hallo");
 
   const projectName = document.getElementById("project-name").value;
   const startDate = document.getElementById("start-date").value;
@@ -196,6 +196,12 @@ function addBlog(event) {
 
     DataProject.push(newProject);
     renderProjects();
+
+    showAdd();
+
+    const contentContainer = document.getElementById("content-card-project");
+    const lastProject = contentContainer.lastElementChild;
+    lastProject.scrollIntoView({ behavior: "smooth", block: "end" });
   }
 }
 
